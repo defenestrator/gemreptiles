@@ -29,7 +29,6 @@
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 400;
                 font-size: 1.1rem;
-                line-height: 1.3rem;
             }
             h1, h2, h3, h4 h5 {
                 font-family: 'Fauna One', sans-serif;
@@ -60,7 +59,7 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="fixed top-0 right-0 px-6 py-4 block">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700">Dashboard</a>
                     @else
