@@ -3,9 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/jpg" href="favicon.png"/>
-        <link rel="shortcut icon" type="image/jpg" href="favicon-100.png"/>
-        <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
+        <!-- For IE 9 and below. ICO should be 32x32 pixels in size -->
+        <!--[if IE]><link rel="shortcut icon" href="favicon.ico"><![endif]-->
+        <!-- IE 10+ "Metro" Tiles - 144x144 pixels in size icon should be transparent -->
+        <meta name="msapplication-TileColor" content="#FFFFFF">
+        <meta name="msapplication-TileImage" content="ms-favicon.png">
+        <!-- Touch Icons - iOS and Android 2.1+ 152x152 pixels in size. -->
+        <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+
+        <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 96x96 pixels in size. -->
+        <link rel="icon" href="favicon.png">
         <title>Gem State Reptiles - Captive Bred Excellence</title>
 
         <!-- Fonts -->
