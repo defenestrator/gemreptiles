@@ -16,7 +16,8 @@
         <title>Gem State Reptiles - Captive Bred Excellence</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Fauna+One&family=Montserrat:wght@200,400&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -25,8 +26,35 @@
 
         <style>
             body {
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 400;
+                font-size: 1.1rem;
+                line-height: 1.3rem;
             }
+            h1, h2, h3, h4 h5 {
+                font-family: 'Fauna One', sans-serif;
+                font-weight: 600;
+            }
+            h1 {
+                font-size: 2.0rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.6rem;
+            }
+
+            .brand-green {
+                color: #29571e;
+            }
+
+            .brand-orange {
+                color: #c48a0b;
+            }
+
         </style>
     </head>
     <body class="antialiased">
@@ -34,12 +62,12 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700">Log in</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Register</a>
                         @endif
                     @endauth
                 </div>
@@ -47,9 +75,9 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <h1>
-                <img class="object-cover" src="logo-3.png" style="width:100%;" alt="Gem State Reptiles Born in Idaho, 2004.">
+                <img class="object-cover" src="logo-4.png" style="width:100%;" alt="Gem State Reptiles. Born in Idaho, 2004.">
                 </h1>
-                <h2 class="text-center">New website coming soon!</h2>
+                <p class="text-center text-gray-700" style="font-size:3rem; font-weight:200;">New website coming soon!</p>
             </div>
         </div>
     </body>
