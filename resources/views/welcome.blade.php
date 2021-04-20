@@ -76,7 +76,7 @@
                 <h1>
                 <img class="object-cover" src="logo-4.png" style="width:100%;" alt="Gem State Reptiles. Born in Idaho, 2004.">
                 </h1>
-                <p class="text-center text-gray-700" style="font-size:3rem; font-weight:200;">New website coming soon!</p>
+                <p class="text-center text-gray-700" style="font-size:2rem; font-weight:200;">New website coming soon!</p>
             </div>
         </div>
     </body>
