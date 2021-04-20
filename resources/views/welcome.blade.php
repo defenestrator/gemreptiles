@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/jpg" href="favicon.png"/>
+        <link rel="shortcut icon" type="image/jpg" href="favicon-100.png"/>
+        <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
         <title>Gem State Reptiles - Captive Bred Excellence</title>
 
         <!-- Fonts -->
