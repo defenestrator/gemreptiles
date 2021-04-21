@@ -16,8 +16,8 @@
         <title>Gem State Reptiles - Captive Bred Excellence</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Fauna+One&family=Montserrat:wght@200,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fauna+One&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -30,9 +30,14 @@
                 font-weight: 400;
                 font-size: 1.1rem;
             }
+            .sans {
+                font-family: 'Montserrat', sans-serif;
+            }
+            .serif {
+                font-family: 'Fauna One', sans-serif;
+            }
             h1, h2, h3, h4 h5 {
                 font-family: 'Fauna One', sans-serif;
-                font-weight: 600;
             }
             h1 {
                 font-size: 2.0rem;
@@ -72,11 +77,17 @@
                 </div>
             @endif
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <h1>
-                <img class="object-cover" src="logo-4.png" style="width:100%;" alt="Gem State Reptiles. Born in Idaho, 2004.">
-                </h1>
-                <p class="text-center text-gray-700" style="font-size:2rem; font-weight:200;">New website coming soon!</p>
+            <div class="max-w-6xl mx-auto py-4 sm:px-6 lg:px-8 mt-8">
+                <div class="container text-center">
+                <img class="object-contain" src="favicon.png" style="padding-bottom:0; " alt="Born in Idaho, 2004.">
+                <h1 class="text-center px-2 pb-0 mb-0" style="font-size:3rem; margin:0 auto; padding-bottom:0; margin-top:-1rem;">Gem State Reptiles</h1>
+                </div>
+                <div class="container text-right px-2">
+                <h2 class="brand-orange sans" style=" margin-top:0; line-height:0; text-align:right; font-size:1.6rem; font-weight:400; margin-right:1.666667rem;">Captive Bred Excellence</h2>
+                </div>
+                <p class="text-center px-2 text-gray-700" style="font-size:1.85rem; font-weight:200;">The comeback, spring 2021</p>
+                </div>
+
             </div>
         </div>
     </body>
