@@ -79,13 +79,15 @@
 
             <div class="max-w-6xl mx-auto py-4 sm:px-6 lg:px-8 mt-8">
                 <div class="container text-center">
+                <p class="text-center px-2 text-gray-700" style="font-size:1.2rem; font-weight:200;">Don't call it a comeback</p>
+                <p class="text-center px-2 text-gray-700" style="font-size:1.2rem; font-weight:200;">Spring 2021</p>
                 <img class="object-contain" src="favicon.png" style="padding-bottom:0; " alt="Born in Idaho, 2004.">
-                <h1 class="text-center px-2 pb-0 mb-0" style="font-size:3rem; margin:0 auto; padding-bottom:0; margin-top:-1rem;">Gem State Reptiles</h1>
+                <h1 class="text-center px-2 pb-0 mb-0" style="font-size:2.0rem; margin:0 auto; padding-bottom:0; margin-top:-1rem;">Gem State Reptiles</h1>
                 </div>
                 <div class="container text-right px-2">
-                <h2 class="brand-orange sans" style=" margin-top:0; line-height:0; text-align:right; font-size:1.6rem; font-weight:400; margin-right:1.666667rem;">Captive Bred Excellence</h2>
+                <h2 class="brand-orange sans" style=" margin-top:0; line-height:1; text-align:right; font-size:1.2rem; font-weight:400; margin-right:0.66667rem;">Captive Bred Excellence</h2>
                 </div>
-                <p class="text-center px-2 text-gray-700" style="font-size:1.85rem; font-weight:200;">The comeback, spring 2021</p>
+
                 </div>
 
             </div>
