@@ -20,13 +20,11 @@ class SpeciesSeeder extends Seeder
             return DB::unprepared($data);
         } else {
             $file = fopen('./database/schema/reptile_checklist_2020_12.csv',"r");
-            $importData_arr = array();
+            $importData_arr = [];
             $i = 0;
             $species = new Species;
-            while (($filedata = fgetcsv($file, 255, ",")) !== FALSE) {
+            while (($filedata = fgetcsv($file, 10000, ",")) !== FALSE) {
                 $num = count($filedata );
-
-                // Skip first row (Remove below comment if you want to skip the first row)
                 if($i == 0){
                 $i++;
                 continue;
@@ -41,7 +39,11 @@ class SpeciesSeeder extends Seeder
             foreach($importData_arr as $importData){
                 $typeSpecies = false;
                 $speciesNumber = intval($importData[6]);
+                $changes = " ";
+
+                if(isset($importData[7])) {$changes = strval($importData[7]);}
                 if ($importData[0] == "x") {$typeSpecies = true;}
+
                 $species->create([
                     'type_species'  => $typeSpecies,
                     'species'       => $importData[1],
@@ -50,10 +52,9 @@ class SpeciesSeeder extends Seeder
                     'common_name'   => $importData[4],
                     'higher_taxa'   => $importData[5],
                     'species_number'=> $speciesNumber,
-                    'changes'       => $importData[7],
+                    'changes'       => $changes
                     ]);
             }
-            return true;
         }
     }
 }
