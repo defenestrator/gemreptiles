@@ -17,9 +17,8 @@ class SpeciesSeeder extends Seeder
     public function run()
     {
         if(DB::table('species')->count() != 11440) {
-            dd(DB::table('species')->count());
-            if(file_exists('./database/schema/seeded_db_initial.sql')) {
-                DB::unprepared(file_get_contents('./database/schema/seeded_db_initial.sql'));
+            if(file_exists('./database/schema/database.sql')) {
+                DB::unprepared(file_get_contents('./database/schema/database.sql'));
                 Log::info('Seeded to the initial state');
             } else {
                 $file = fopen('./database/schema/reptile_checklist_2020_12.csv',"r");
