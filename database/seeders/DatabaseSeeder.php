@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Database\Seeders\SpeciesSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,8 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            SpeciesSeeder::class,
-        ]);
+        $dataStreamLol = 'database/schema/seeded_db_initial.dump';
+        DB::unprepared(file_get_contents($dataStreamLol));
     }
 }
