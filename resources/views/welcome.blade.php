@@ -81,11 +81,11 @@
                 <div class="container text-center">
                 <p class="text-center px-2 text-gray-700" style="font-size:1.2rem; font-weight:200;">Don't call it a comeback</p>
                 <p class="text-center px-2 text-gray-700" style="font-size:1.2rem; font-weight:200;">Spring 2021</p>
-                <img class="object-contain" src="favicon.png" style="padding-bottom:0; " alt="Born in Idaho, 2004.">
+                <img class="object-contain" src="favicon.png" style="padding-bottom:0; " alt="Hatched in Idaho, 2004">
                 <h1 class="text-center px-2 pb-0 mb-0" style="font-size:2.0rem; margin:0 auto; padding-bottom:0; margin-top:-1rem;">Gem State Reptiles</h1>
                 </div>
                 <div class="container text-right px-2">
-                <h2 class="brand-orange sans" style=" margin-top:0; line-height:1; text-align:right; font-size:1.2rem; font-weight:400; margin-right:0.66667rem;">Captive Bred Excellence</h2>
+                <h2 class="brand-orange sans" style=" margin-top:0; line-height:1; text-align:right; font-size:1.2rem; font-weight:400; margin-right:0.66667rem;">We're the wild-type</h2>
                 </div>
 
                 </div>
