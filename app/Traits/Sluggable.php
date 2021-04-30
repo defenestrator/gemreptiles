@@ -3,7 +3,7 @@ namespace App\Traits;
 
 use Illuminate\Support\Str;
 
-Trait Sluggable {
+trait Sluggable {
 
     public static function createSlug($text)
     {
