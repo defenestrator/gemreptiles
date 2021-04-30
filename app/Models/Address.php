@@ -9,4 +9,8 @@ use Dyrynda\Database\Support\GeneratesUuid;
 class Address extends Model
 {
     use HasFactory, GeneratesUuid;
+
+    protected $casts = [
+        'uuid' => EfficientUuid::class,
+    ];
 }

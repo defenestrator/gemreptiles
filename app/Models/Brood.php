@@ -8,7 +8,11 @@ use Dyrynda\Database\Support\GeneratesUuid;
 
 class Brood extends Model
 {
-    use HasFactory;
+    use HasFactory, GeneratesUuid;
+
+    protected $casts = [
+        'uuid' => EfficientUuid::class,
+    ];
 
     public function pairing()
     {

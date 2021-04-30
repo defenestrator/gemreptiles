@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $dataStreamLol = 'database/schema/seeded_db_initial.dump';
-        DB::unprepared(file_get_contents($dataStreamLol));
+        $this->call([
+            SpeciesSeeder::class,
+        ]);
+
     }
 }

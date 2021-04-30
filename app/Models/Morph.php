@@ -8,7 +8,11 @@ use Dyrynda\Database\Support\GeneratesUuid;
 
 class Morph extends Model
 {
-    use HasFactory;
+    use HasFactory, GeneratesUuid;
+
+    protected $casts = [
+        'uuid' => EfficientUuid::class,
+    ];
 
     public function morph()
     {

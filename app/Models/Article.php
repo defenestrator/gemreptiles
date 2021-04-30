@@ -8,7 +8,11 @@ use Dyrynda\Database\Support\GeneratesUuid;
 
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory, GeneratesUuid;
+
+    protected $casts = [
+        'uuid' => EfficientUuid::class,
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +25,6 @@ class Article extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return $this->belongsTo(User::class);
     }
 }
