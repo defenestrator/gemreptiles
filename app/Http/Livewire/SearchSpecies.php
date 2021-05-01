@@ -21,19 +21,19 @@ class SearchSpecies extends Component
             if (Cache::has($cacheKey)) {
                 $all = Cache::get($cacheKey);
             } else {
-                $all = $all->merge(Species::where('species', "like", '%' . $this->search . '%')->get());
-                $all = $all->merge(Species::where('species', "like", $this->search . '%')->get());
-                $all = $all->merge(Species::where('species', "like", '%' . $this->search)->get());
-                $all = $all->merge(Species::where('common_name', 'like', $this->search . '%')->get());
-                $all = $all->merge(Species::where('common_name', 'like', '%' . $this->search)->get());
-                $all = $all->merge(Species::where('common_name', 'like', '%' . $this->search . '%')->get());
-                $all = $all->merge(Species::where('subspecies', 'like', $this->search . '%')->get());
-                $all = $all->merge(Species::where('subspecies', 'like', '%' . $this->search)->get());
-                $all = $all->merge(Species::where('subspecies', 'like', '%' . $this->search . '%')->get());
-                Cache::put($cacheKey, $all);
+                $searchTerm = trim($this->search);
+                $all = $all->merge(Species::where('species', "like", '%' . $searchTerm . '%')->get());
+                $all = $all->merge(Species::where('species', "like", $searchTerm . '%')->get());
+                $all = $all->merge(Species::where('species', "like", '%' . $searchTerm)->get());
+                $all = $all->merge(Species::where('common_name', 'like', $searchTerm . '%')->get());
+                $all = $all->merge(Species::where('common_name', 'like', '%' . $searchTerm)->get());
+                $all = $all->merge(Species::where('common_name', 'like', '%' . $searchTerm . '%')->get());
+                $all = $all->merge(Species::where('subspecies', 'like', $searchTerm . '%')->get());
+                $all = $all->merge(Species::where('subspecies', 'like', '%' . $searchTerm)->get());
+                $all = $all->merge(Species::where('subspecies', 'like', '%' . $searchTerm . '%')->get());
+                Cache::put($cacheKey, $all, 31540000);
             }
         }
         return view('livewire.search-species', ['species' => $all]);
-
     }
 }
