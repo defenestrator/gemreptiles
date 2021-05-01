@@ -46,7 +46,7 @@ class SpeciesController extends Controller
      */
     public function show(Species $species)
     {
-        //
+        return response('ding dong');
     }
 
     /**

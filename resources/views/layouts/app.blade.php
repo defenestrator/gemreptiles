@@ -45,6 +45,7 @@
 
             <!-- Page Content -->
             <main class="font-sans">
+                @livewire('search-species')
                 {{ $slot }}
             </main>
         </div>

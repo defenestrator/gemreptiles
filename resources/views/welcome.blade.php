@@ -13,7 +13,7 @@
 
         <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 96x96 pixels in size. -->
         <link rel="icon" href="favicon.png">
-        <title>Gem State Reptiles - Captive Bred Excellence</title>
+        <title>We're the wild-type</title>
 
         <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
