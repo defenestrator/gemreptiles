@@ -17,9 +17,10 @@ class SpeciesSeeder extends Seeder
     public function run()
     {
         if(DB::table('species')->count() != 11440) {
-            if(file_exists('./database/schema/database.sql')) {
-                DB::unprepared(file_get_contents('./database/schema/database.sql'));
-                Log::info('Seeded to the initial state');
+            DB::table('species')->truncate();
+
+            if(file_exists('./database/schema/species.sql')) {
+                DB::unprepared('./database/schema/species.sql');
             } else {
                 $file = fopen('./database/schema/reptile_checklist_2020_12.csv',"r");
                 $importData_arr = [];
@@ -55,12 +56,10 @@ class SpeciesSeeder extends Seeder
                         'higher_taxa'   => $importData[5],
                         'species_number'=> $speciesNumber,
                         'changes'       => $changes
-                        ]);
+                    ]);
                 }
             }
-        } else {
-            return Log::info('Species seeder skipped');
+            return Log::info('RE-SEEDED the Species Database');
         }
-
     }
 }
