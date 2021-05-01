@@ -26,7 +26,7 @@ trait Sluggable {
         $text = strtolower($text);
 
         if (empty($text)) {
-            return strval(md5(Str::uuid()));
+            return self::createSlug("not-valid-content-" . strval(now()));
         }
 
         return $text;

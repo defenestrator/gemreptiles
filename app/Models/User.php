@@ -15,7 +15,6 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
-    use MustVerifyEmail;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
@@ -25,7 +24,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -57,9 +58,4 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function articles()
-    {
-        return $this->hasMany(Article::class);
-    }
 }

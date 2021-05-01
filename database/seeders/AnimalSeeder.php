@@ -15,7 +15,7 @@ class AnimalSeeder extends Seeder
      */
     public function run()
     {
-        $uuid = Str::orderedUuid();
+        $uuid = Str::orderedUuid()->toString();
         $animal = new Animal;
         $slug = $animal->createSlug($uuid);
         $animal->factory()

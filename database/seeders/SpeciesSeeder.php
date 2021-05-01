@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Species;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Log;
 
 class SpeciesSeeder extends Seeder
@@ -17,10 +18,9 @@ class SpeciesSeeder extends Seeder
     public function run()
     {
         if(DB::table('species')->count() != 11440) {
-            DB::table('species')->truncate();
-
             if(file_exists('./database/schema/species.sql')) {
-                DB::unprepared('./database/schema/species.sql');
+                DB::unprepared(file_get_contents('./database/schema/species.sql'));
+                Log::info('Seeded from species.sql');
             } else {
                 $file = fopen('./database/schema/reptile_checklist_2020_12.csv',"r");
                 $importData_arr = [];
@@ -59,7 +59,8 @@ class SpeciesSeeder extends Seeder
                     ]);
                 }
             }
-            return Log::info('RE-SEEDED the Species Database');
+            Log::info('RE-SEEDED the Species Database');
         }
+        Log::info('Everything is fine');
     }
 }
