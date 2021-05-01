@@ -19,6 +19,9 @@ class SearchSpecies extends Component
             $all = $all->merge(Species::where('common_name', 'like', $this->search . '%')->get());
             $all = $all->merge(Species::where('common_name', 'like', '%' . $this->search)->get());
             $all = $all->merge(Species::where('common_name', 'like', '%' . $this->search . '%')->get());
+            $all = $all->merge(Species::where('subspecies', 'like', $this->search . '%')->get());
+            $all = $all->merge(Species::where('subspecies', 'like', '%' . $this->search)->get());
+            $all = $all->merge(Species::where('subspecies', 'like', '%' . $this->search . '%')->get());
         }
 
         return view('livewire.search-species', ['species' => $all]);
