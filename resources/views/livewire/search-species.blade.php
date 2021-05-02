@@ -1,9 +1,13 @@
 <div class="container mx-auto p-6">
     <div class="p-4 px-6 bg-white rounded-md shadow-lg">
         <h3 class="text-2xl font-serif mb-2">
-            Search for Species @if(count($species) > 0) <span class="text-sm content-center">{{ count($species) . ' results'}}</span>@endif
+            Search for Species @if(count($species) > 0) <span class="text-sm content-center font-sans text-yellow-700">{{ count($species) . ' results'}}</span>@endif
         </h3>
-        <input class="rounded-md form-input border-green-600 focus:border-green-400" style="--tw-ring-color: rgba(5, 150, 105, var(--tw-border-opacity));" wire:model="search" type="text" placeholder="Search species..."/>
+
+        <input class="rounded-md form-input
+            border-green-600 focus:border-green-400"
+            style="--tw-ring-color: rgba(5, 150, 105);" id="search-species" wire:model="search" type="text" placeholder="Search species..."/>
+
         @if(count($species) > 0)
         <div class="text-left pt-4">
             <ul class="">
@@ -12,42 +16,83 @@
                     <div class="flex-auto text-2xl">
                         <a class="text-green-800 hover:text-green-600" href="/species/{{ $specie->id }}">
                             {{ $specie->species }}
-                            @if($specie->type_species == true)
-                                <span class="flex-auto text-sm text-yellow-900 opacity-80">
-                                    type species
-                                </span>
-                            @endif
                         </a>
                     </div>
                     @if($specie->type_species == true)
-                        <div class="flex-auto text-yellow-900 opacity-80">
-
+                        <div class="flex-auto text-xs text-yellow-800">
+                            Type Species
                         </div>
                     @endif
-
                     @if($specie->common_name)
                     <div class="flex-auto"><span class="text-gray-700">Common names:</span>
                         <div class="flex-auto">
-                            {{-- <a class="text-green-800 hover:text-green-600" href="/species/{{ $specie->id }}"> --}}
-                                {{ $specie->common_name }}
-                            {{-- </a> --}}
+                            {{ $specie->common_name }}
                         </div>
                     </div>
                     @endif
                     @if($specie->subspecies)
                     <div class="flex-auto"><span class="text-gray-700">Subspecies:</span>
                         <div class="flex-auto">
-                            {{-- <a class="text-green-800 hover:text-green-600" href="/species/{{ $specie->id }}"> --}}
-                                {{ $specie->subspecies }}
-                            {{-- </a> --}}
+                            {{ $specie->subspecies }}
                         </div>
                     </div>
                     @endif
-
                 </li>
             @endforeach
             </ul>
         </div>
         @endif
     </div>
+    <script>
+        const terms = [
+            'iguana',
+            'boa',
+            'cobra',
+            'Anolis',
+            'Rhacodactylus',
+            'Corn Snake',
+            'Western Hognose',
+            'Python',
+            'tree',
+            'Pituophis',
+            'rattlesnake',
+            'Abronia',
+            'Flying',
+            'Dragon',
+            'monitor',
+            'agama',
+            'bicolor',
+            'unicorn',
+            'gecko',
+            'monster',
+            'night',
+            'rainbow',
+            'teiid',
+            'chameleon',
+            'rat',
+            'gopher'
+        ];
+        let searchInput = document.getElementById('search-species')
+        searchInput.select()
+        searchInput.value = ""
+        var text = terms[Math.floor(Math.random() * terms.length)];
+        var l=text.length;
+        var current = 0;
+        var time = 100;
+        var writeText = function() {
+            searchInput.value+=text[current];
+            if(current < l-1) {
+                current++;
+                setTimeout(function(){writeText()},time);
+                searchInput.dispatchEvent(new Event('input'));
+            } else {
+                searchInput.setAttribute('value',searchInput.value);
+                searchInput.dispatchEvent(new Event('input'));
+            }
+        }
+    window.onload =  function (event){
+        setTimeout(function(){writeText()},time);
+        searchInput.dispatchEvent(new Event('input'));
+    };
+</script>
 </div>

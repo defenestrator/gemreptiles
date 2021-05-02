@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('cache.headers:public;max_age=0;etag')->group(function () {
+    Route::get('/', function () {
+        return view('welcome' );
+    });
 });
 
 Route::get('/species/{$id}', 'SpeciesController@show');

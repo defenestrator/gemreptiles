@@ -65,17 +65,16 @@
                     </h1>
                 </div>
                 <div class="container text-right px-2">
-                    <h2 class="brand-orange sans"
+                    <h2 class="text-yellow-600 sans"
                         style=" margin-top:0; line-height:1; text-align:right; font-size:1.2rem; font-weight:400; margin-right:0.66667rem;">
                         We're the wild-type
                     </h2>
                 </div>
 
             </div>
-
-            @livewireScripts
-
             </div>
             @livewire('search-species')
         </div>
 </x-guest-layout>
+
+
