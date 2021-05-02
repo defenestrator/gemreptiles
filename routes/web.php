@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('cache.headers:public;max_age=0;etag')->group(function () {
     Route::get('/', function () {
         return view('welcome' );
-    });
+    })->name('welcome');
 });
 
 Route::get('/species/{$id}', 'SpeciesController@show');

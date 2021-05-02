@@ -18,6 +18,7 @@ class SearchSpecies extends Component
 
     public function render()
     {
+        $count = Species::count();
         $speciesResultsCollection = new \Illuminate\Database\Eloquent\Collection;
         if (strlen($this->search) >= 3 ) {
             $cacheKey = 'search-string-' . $this->createSlug($this->search);
@@ -37,6 +38,6 @@ class SearchSpecies extends Component
                 Cache::put($cacheKey, $speciesResultsCollection, 31540000);
             }
         }
-        return view('livewire.search-species', ['species' => $speciesResultsCollection]);
+        return view('livewire.search-species', ['species' => $speciesResultsCollection, 'count' => $count]);
     }
 }

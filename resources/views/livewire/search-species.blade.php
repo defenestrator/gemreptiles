@@ -1,7 +1,12 @@
 <div class="container mx-auto p-6">
     <div class="p-4 px-6 bg-white rounded-md shadow-lg">
         <h3 class="text-2xl font-serif mb-2">
-            Search for Species @if(count($species) > 0) <span class="text-sm content-center font-sans text-yellow-700">{{ count($species) . ' results'}}</span>@endif
+            Search
+            @if(count($species) > 0)
+            <span class="text-sm content-center font-sans text-yellow-700"> {{ count($species) . ' results'}}</span>
+            @else
+            <span class="text-sm content-center font-sans text-yellow-700"> {{$count}} species</span>
+            @endif
         </h3>
 
         <input class="rounded-md form-input
@@ -43,6 +48,8 @@
         </div>
         @endif
     </div>
+
+    @if(Route::currentRouteName()  == 'welcome')
     <script>
         const terms = [
             'iguana',
@@ -95,4 +102,5 @@
         searchInput.dispatchEvent(new Event('input'));
     };
 </script>
+@endif
 </div>
