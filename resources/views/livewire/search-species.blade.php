@@ -4,7 +4,7 @@
             Search for Reptiles
             @if(count($species) > 0)
             <span class="text-sm content-center font-sans text-yellow-700"> {{ count($species) . ' results'}}</span>
-            @elseif(count($species) = 1)
+            @elseif(count($species) == 1)
             <span class="text-sm content-center font-sans text-yellow-700"> {{ count($species) . ' result'}}</span>
             @else
             <span class="text-sm content-center font-sans text-yellow-700"> {{$count}} species</span>
