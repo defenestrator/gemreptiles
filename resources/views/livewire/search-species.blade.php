@@ -76,6 +76,7 @@
             'gecko',
             'monster',
             'tortoise',
+            'king',
             'turtle',
             'alligator',
             'night',
