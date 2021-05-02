@@ -1,11 +1,14 @@
 <x-guest-layout>
 <div class="p-6 sm:px-20 bg-white border-b border-gray-200 min-h-screen">
-    <div class="flex-row rounded-lg bg-green-50 shadow py-4 px-2 m-4">
-        <div class="flex-auto text-2xl">
-            <a class="text-green-800 hover:text-green-600" href="/species/{{ $species->id }}">
-                {{ $species->species }}
-            </a>
-        </div>
+    <x-slot name="header">
+        <button>
+            @include('jetstream::components.authentication-card-logo')
+        </button>
+    </x-slot>
+    <div class="flex-row rounded-lg bg-green-50 shadow py-4 px-2 m-2">
+        <h2 class="flex-1 font-semibold text-xl text-gray-800 leading-tight">
+            {{ $species->species }}
+        </h2>
         @if($species->type_species == true)
             <div class="flex-auto text-xs text-yellow-800">
                 Type Species
