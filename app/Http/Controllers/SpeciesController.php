@@ -46,8 +46,8 @@ class SpeciesController extends Controller
      */
     public function show(Species $species)
     {
-        dd($species);
-        return response('ding dong');
+
+        return view('species.show', ['species' => $species]);
     }
 
     /**
