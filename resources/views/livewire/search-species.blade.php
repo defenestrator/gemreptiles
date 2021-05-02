@@ -1,7 +1,7 @@
 <div class="container mx-auto p-6">
     <div class="p-4 px-6 bg-white rounded-md shadow-lg">
-        <h3 class="text-2xl font-serif mb-2">
-            Search
+        <h3 class="text-xl font-serif mb-2">
+            Search for Reptiles
             @if(count($species) > 0)
             <span class="text-sm content-center font-sans text-yellow-700"> {{ count($species) . ' results'}}</span>
             @else

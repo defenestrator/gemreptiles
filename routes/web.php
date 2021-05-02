@@ -12,14 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware('cache.headers:public;max_age=0;etag')->group(function () {
-    Route::get('/', function () {
-        return view('welcome' );
-    })->name('welcome');
+
+Route::middleware('cache.headers:public;max_age=7200;etag')->namespace('\\App\\Http\\Controllers')->group(function () {
+    Route::get('/', 'WelcomeController@index')->name('welcome');
+    Route::resource('/species', SpeciesController::class);
+    Route::resource('/animals', AnimalController::class);
+    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',  'DashboardController@index')->name('dashboard');
 });
 
-Route::get('/species/{$id}', 'SpeciesController@show');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
