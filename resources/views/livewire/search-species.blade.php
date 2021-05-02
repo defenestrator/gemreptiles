@@ -2,7 +2,7 @@
     <div class="p-4 px-6 bg-white rounded-md shadow-lg">
         <h3 class="text-xl font-serif mb-2">
             Search for Reptiles
-            @if(count($species) > 0)
+            @if(count($species) > 0 && count($species) != 1)
             <span class="text-sm content-center font-sans text-yellow-700"> {{ count($species) . ' results'}}</span>
             @elseif(count($species) == 1)
             <span class="text-sm content-center font-sans text-yellow-700"> {{ count($species) . ' result'}}</span>
