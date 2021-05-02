@@ -85,7 +85,7 @@
         var text = terms[Math.floor(Math.random() * terms.length)];
         var l=text.length;
         var current = 0;
-        var time = 100;
+        var time = 120;
         var writeText = function() {
             searchInput.value+=text[current];
             if(current < l-1) {
@@ -99,7 +99,6 @@
         }
     window.onload =  function (event){
         setTimeout(function(){writeText()},time);
-        searchInput.dispatchEvent(new Event('input'));
     };
 </script>
 @endif
