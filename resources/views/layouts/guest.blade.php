@@ -43,7 +43,9 @@
 
             <!-- Page Content -->
             <main class="font-sans">
-                {{ $slot }}
+                <div class="max-w-7xl mx-auto">
+                    {{ $slot }}
+                </div>
             </main>
         </div>
 
