@@ -1,5 +1,5 @@
-<div class="container mx-auto p-6">
-    <div class="p-4 px-6 bg-white rounded-md shadow-lg">
+<div class="max-w-7xl mx-auto sm:py-6 px-0 sm:px-6">
+    <div class="p-6 bg-white border-b border-gray-200 sm:rounded-md shadow-lg">
         <h3 class="text-xl font-serif mb-2">
             Search for Reptiles
             @if(count($species) > 0 && count($species) != 1)
