@@ -1,5 +1,5 @@
 <div class="max-w-7xl mx-auto sm:py-6 px-0 sm:px-6">
-    <div class="p-6 bg-white border-b border-gray-200 sm:rounded-md shadow-lg">
+    <div class="p-6 bg-white border-b border-gray-200 sm:rounded shadow-lg">
         <h3 class="text-xl font-serif mb-2">
             Search for Reptiles
             @if(count($species) > 0 && count($species) != 1)
@@ -19,17 +19,18 @@
         <div class="text-left pt-4">
             <ul class="">
             @foreach($species as $specie)
-                <li class="flex-row rounded-lg bg-green-50 shadow py-4 px-2 m-4">
+                <li class="flex-row rounded-lg bg-gray-50 border shadow py-6 px-4 mx-4 my-6">
                     <div class="flex-auto text-2xl">
-                        <a class="text-green-800 hover:text-green-600" href="/species/{{ $specie->id }}">
+                        <a class="text-green-700 hover:text-green-500" href="/species/{{ $specie->id }}">
                             {{ $specie->species }}
                         </a>
                     </div>
                     @if($specie->type_species == true)
-                        <div class="flex-auto text-xs text-yellow-800">
-                            Type Species
-                        </div>
+                        <span class="flex-auto text-sm text-yellow-800">
+                            &mdash; Type Species  &mdash;
+                        </span>
                     @endif
+                    <hr class="my-2 border-gray-300">
                     @if($specie->common_name)
                     <div class="flex-auto"><span class="text-gray-700">Common names:</span>
                         <div class="flex-auto">

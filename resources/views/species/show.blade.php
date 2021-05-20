@@ -10,10 +10,11 @@
             {{ $species->species }}
         </h2>
         @if($species->type_species == true)
-            <div class="flex-auto text-yellow-800">
-                Type Species
+            <div class="text-sm flex-auto text-yellow-900">
+                 &mdash; Type Species &mdash;
             </div>
         @endif
+        <hr class="my-2">
         @if($species->common_name)
         <div class="flex-auto"><span class="text-yellow-700">Common names:</span>
             <div class="flex-auto">
