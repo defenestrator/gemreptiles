@@ -52,7 +52,7 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
             'cache' => [
                 'store' => 'redis',
-                'expire' => 600,
+                'expire' => 3.154e+7,
                 'prefix' => 'gem_reptiles_image_cache',
             ],
         ],

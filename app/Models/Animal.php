@@ -16,4 +16,9 @@ class Animal extends Model
         'uuid' => EfficientUuid::class,
     ];
 
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
 }

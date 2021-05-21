@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
-use App\Http\Requests\ImageStoreRequest;
+use App\Models\FieldObservation;
 use Illuminate\Http\Request;
 
-class ImageController extends Controller
+class FieldObservationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +22,7 @@ class ImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
         //
     }
@@ -34,31 +33,18 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ImageStoreRequest $request, Image $image)
+    public function store(Request $request)
     {
-        if ($request->hasFile('image') && $request->file('image')->isValid() ) {
-
-            $model = [
-                'imageable_type' => $request->imageable_type,
-                'imageable_id' => $request->imageable_id
-            ];
-
-            $file = $image->uploadImage($request->file('image'), $model);
-
-            return $image->create($file);
-        }
-
-        return response('Error', 422, ['error' => 'Unprocessable Entity, this probably means the file you uploaded is corrupt or an unsupported file type.']);
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Image  $image
+     * @param  \App\Models\FieldObservation  $fieldObservation
      * @return \Illuminate\Http\Response
      */
-    public function show(Image $image)
+    public function show(FieldObservation $fieldObservation)
     {
         //
     }
@@ -66,10 +52,10 @@ class ImageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Image  $image
+     * @param  \App\Models\FieldObservation  $fieldObservation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Image $image)
+    public function edit(FieldObservation $fieldObservation)
     {
         //
     }
@@ -78,10 +64,10 @@ class ImageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Image  $image
+     * @param  \App\Models\FieldObservation  $fieldObservation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Image $image)
+    public function update(Request $request, FieldObservation $fieldObservation)
     {
         //
     }
@@ -89,10 +75,10 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Image  $image
+     * @param  \App\Models\FieldObservation  $fieldObservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image)
+    public function destroy(FieldObservation $fieldObservation)
     {
         //
     }
