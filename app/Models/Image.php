@@ -8,7 +8,7 @@ use Dyrynda\Database\Support\GeneratesUuid;
 use Dyrynda\Database\Casts\EfficientUuid;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Intervention;
+use Intervention\Image\Facades\Image as Intervention;
 
 class Image extends Model
 {
