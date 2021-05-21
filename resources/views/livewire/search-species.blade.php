@@ -51,10 +51,10 @@
             Our species search was built using data from the
             <a class="text-green-500" href="http://www.reptile-database.org/" title="The Reptile Database">
                 worldwide reptile species database
-            </a>, which serves as the latest academic consensus on extant reptile species.
+            </a>, which serves as an academic reference on extant reptile species.
         </p>
 
-            <p class="my-4">The current representation was built using the latest work of worldwide herpetologists, via the
+            <p class="my-4 p-2">The current representation was built using the latest consensus of worldwide herpetologists, via the
             <a class="text-green-500" href="http://www.reptile-database.org/data/" title="Reptile Species Checklist">
                 reptile species checklist
             </a>
