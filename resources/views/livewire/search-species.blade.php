@@ -48,16 +48,16 @@
         </div>
         @endif
         <p class="mt-4 p-2">
-            Our species search was built using data from the
+            Our species search was built using data from the worldwide
             <a class="text-green-500" href="http://www.reptile-database.org/" title="The Reptile Database">
-                worldwide reptile species database
-            </a>, which serves as an academic reference on extant reptile species.
+                reptile species database</a>,
+                which serves as an academic reference on extant reptile species.
         </p>
 
-            <p class="my-4 p-2">The current representation was built using the latest consensus of worldwide herpetologists available, via the
+            <p class="my-4 p-2">The current representation uses the latest consensus of worldwide herpetologists available, via the
             <a class="text-green-500" href="http://www.reptile-database.org/data/" title="Reptile Species Checklist">
-                reptile species checklist
-            </a>, published December 14th, 2020.
+                reptile species checklist</a>,
+                published December 14th, 2020.
         </p>
     </div>
 
