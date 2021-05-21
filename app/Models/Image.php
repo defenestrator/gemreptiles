@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Dyrynda\Database\Support\GeneratesUuid;
 use Dyrynda\Database\Casts\EfficientUuid;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Intervention;
 use Illuminate\Support\Str;
 
 class Image extends Model
@@ -29,9 +30,9 @@ class Image extends Model
      *
      * @return string $newImage
      */
-    protected function uploadImage($file)
+    protected function uploadImage($file, $px2 = 2000)
     {
-        $newImage = $this->processImage($file, 2000);
+        $newImage = $this->processImage($file, $px2);
 
         return $newImage;
     }
@@ -52,7 +53,7 @@ class Image extends Model
             'Expires'       =>  now()->addRealDecade()->format('D, d M Y H:i:s T')
         ];
 
-        $resize = Image::make($image)
+        $resize = Intervention::make($image)
             ->resize($size, $size, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
