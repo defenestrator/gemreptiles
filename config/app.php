@@ -52,8 +52,12 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
-    'kumquat' => env('KUMQUAT'),
+    'url' => env('APP_URL', 'https://gemreptiles.com'),
+
+    'dev_admin_password' => env('DEV_ADMIN_PASSWORD'),
+    'dev_admin_user' => env('DEV_ADMIN_USER'),
+    'dev_admin_email' => env('DEV_ADMIN_EMAIL'),
+
     'asset_url' => env('ASSET_URL', null),
 
     /*

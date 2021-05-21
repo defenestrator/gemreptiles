@@ -16,10 +16,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $password = Hash::make(config('app.kumquat'));
+        $password = Hash::make(config('app.dev_admin_password'));
         User::create([
-            'name'  => 'Jeremy Anderson',
-            'email' => 'jeremyblc@gmail.com',
+            'name'  => config('app.dev_admin_user'),
+            'email' => config('app.dev_admin_email'),
             'email_verified_at' => '2021-05-21 03:05:06',
             'password' => $password,
             ]);
