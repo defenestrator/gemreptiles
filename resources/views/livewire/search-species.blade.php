@@ -100,14 +100,15 @@
             'teiid',
             'chameleon',
             'rat',
-            'gopher'
+            'gopher',
+            'blattfinger'
         ];
         let searchInput = document.getElementById('search-species')
         searchInput.select()
         searchInput.value = ""
         function clearSearch() {
-            searchInput.select()
             searchInput.value = ""
+            searchInput.select()
         }
         var text = terms[Math.floor(Math.random() * terms.length)];
         var l=text.length;
