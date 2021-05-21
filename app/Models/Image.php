@@ -62,7 +62,7 @@ class Image extends Model
         $fileName = $hash . '.png';
         if ( config('app.env') == 'production' ) {
             Storage::disk('s3')->getDriver()->put('/images/'. $fileName , $resize->__toString(), $options);
-            $filePath = 'https://s3-us-west-2.amazonaws.com/i.thecheebashack.com/images/'. $fileName;
+            $filePath = 'https://cdn.gemreptiles.com/images/'. $fileName;
         } else {
             Storage::disk('local')->put('/public/images/'. $fileName , $resize->__toString());
             $filePath = Storage::disk('local')->url('images/'. $fileName);

@@ -69,7 +69,6 @@ CREATE TABLE `animals` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `animals_uuid_unique` (`uuid`),
-  UNIQUE KEY `animals_pet_name_unique` (`pet_name`),
   UNIQUE KEY `animals_slug_unique` (`slug`),
   KEY `animals_breeder_id_foreign` (`breeder_id`),
   KEY `animals_brood_id_foreign` (`brood_id`),

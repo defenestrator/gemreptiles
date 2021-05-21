@@ -35,7 +35,7 @@
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow font-serif">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
@@ -43,7 +43,7 @@
 
             <!-- Page Content -->
             <main class="font-sans">
-                <div class="max-w-7xl mx-auto">
+                <div class="mx-auto">
                     {{ $slot }}
                 </div>
             </main>

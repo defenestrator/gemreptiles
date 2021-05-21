@@ -5,7 +5,7 @@
             @include('jetstream::components.authentication-card-logo')
         </button>
     </x-slot>
-    <div class="rounded-lg bg-green-50 shadow py-4 px-2 m-2">
+    <div class="max-w-2xl rounded-lg bg-green-50 shadow py-4 px-2 m-2">
         <h2 class="flex-1 font-semibold text-xl text-gray-800 leading-tight">
             {{ $species->species }}
         </h2>
