@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Dyrynda\Database\Support\GeneratesUuid;
 use Dyrynda\Database\Casts\EfficientUuid;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Intervention;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Intervention;
 
 class Image extends Model
 {
@@ -49,15 +49,18 @@ class Image extends Model
     {
         $options = [
             'visibility'    =>  'public',
-            'Cache-Control' =>  'max-age=31534000',
+            'Cache-Control' =>  'max-age=31540000',
             'Expires'       =>  now()->addRealDecade()->format('D, d M Y H:i:s T')
         ];
 
-        $resize = Intervention::make($image)
+        $resize =
+        Intervention::make($image)
             ->resize($size, $size, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
-            })->encode('png')->stream();
+            })
+            ->encode('png')
+            ->stream();
 
         $hash = Str::uuid();
         $fileName = $hash . '.png';

@@ -13,12 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('cache.headers:public;max_age=7200;etag')->namespace('\\App\\Http\\Controllers')->group(function () {
-    Route::get('/', 'WelcomeController@index')->name('welcome');
-    Route::resource('/species', SpeciesController::class);
-    Route::resource('/animals', AnimalController::class);
-    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',  'DashboardController@index')->name('dashboard');
+Route::namespace('\\App\\Http\\Controllers')->group(function () {
+    Route::middleware('cache.headers:public;max_age=7200;etag')->group(function () {
+        Route::get('/', 'WelcomeController@index')->name('welcome');
+    });
+
+    Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+        Route::get('/dashboard',  'DashboardController@index')->name('dashboard');
+        Route::resource('/species', SpeciesController::class);
+        Route::resource('/animals', AnimalController::class);
+    });
 });
+
 
 
 
