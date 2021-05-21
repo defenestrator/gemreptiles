@@ -12,42 +12,37 @@
         </h3>
 
         <input class="rounded-md form-input
-            border-green-600 focus:border-green-400"
-            style="--tw-ring-color: rgba(5, 150, 105);" id="search-species" wire:model="search" type="text" placeholder="Search species..."/>
+            border-green-500 focus:border-green-400"
+            style="--tw-ring-color: rgba(59, 125, 43);" id="search-species" wire:model="search" type="text" placeholder="Search species..."/>
 
         @if(count($species) > 0)
         <div class="text-left pt-4">
-            <ul class="">
+            <div class="grid gap-2 grid-cols-2">
             @foreach($species as $specie)
-                <li class="flex-row rounded-lg bg-gray-50 border shadow py-6 px-4 mx-4 my-6">
-                    <div class="flex-auto text-2xl">
+                <div class="rounded-lg bg-green-50 border shadow py-4 px-4 mx-1 my-2 overflow-hidden max-h-96">
+                    <div class="block text-xl font-serif overflow-hidden">
                         <a class="text-green-700 hover:text-green-500" href="/species/{{ $specie->id }}">
                             {{ $specie->species }}
                         </a>
                     </div>
-                    @if($specie->type_species == true)
-                        <span class="flex-auto text-sm text-yellow-800">
-                            &mdash; Type Species  &mdash;
-                        </span>
-                    @endif
                     <hr class="my-2 border-gray-300">
                     @if($specie->common_name)
-                    <div class="flex-auto"><span class="text-gray-700">Common names:</span>
-                        <div class="flex-auto">
+                    <div class="block mt-1"><span class="text-yellow-900">Common names:</span>
+                        <div class="">
                             {{ $specie->common_name }}
                         </div>
                     </div>
                     @endif
                     @if($specie->subspecies)
-                    <div class="flex-auto"><span class="text-gray-700">Subspecies:</span>
-                        <div class="flex-auto">
+                    <div class="block mt-2"><span class="text-yellow-900">Subspecies:</span>
+                        <div class="">
                             {{ $specie->subspecies }}
                         </div>
                     </div>
                     @endif
-                </li>
+                </div>
             @endforeach
-            </ul>
+            </div>
         </div>
         @endif
     </div>
