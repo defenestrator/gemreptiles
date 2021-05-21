@@ -48,7 +48,7 @@
         </div>
         @endif
         <p class="mt-4 p-2">
-            Our species database was built on the work of the
+            Our species database was built using data from the
             <a class="text-green-500" href="http://www.reptile-database.org/" title="The Reptile Database">
                 worldwide reptile species database
             </a>, which serves as the latest academic consensus on extant reptile species.
