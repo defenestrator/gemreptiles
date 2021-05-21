@@ -76,7 +76,6 @@
                         We're the wild-type
                     </h2>
                 </div>
-
             </div>
             </div>
             @livewire('search-species')

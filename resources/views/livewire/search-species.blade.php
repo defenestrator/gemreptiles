@@ -1,5 +1,19 @@
 <div class="max-w-7xl mx-auto sm:py-6 px-0 sm:px-6">
+
     <div class="p-6 bg-white border-b border-gray-200 sm:rounded shadow-lg">
+        <p>
+            Our species database was built on the work of the
+            <a class="text-green-500" href="http://www.reptile-database.org/" title="The Reptile Database">
+                worldwide reptile species database
+            </a>, which serves as the latest academic consensus on extant reptile species.
+        </p>
+
+            <p class="my-4">The current representation was built using the latest consensus of worldwide herpetologists, via the
+            <a class="text-green-500" href="http://www.reptile-database.org/data/" title="Reptile Species Checklist">
+                reptile species checklist
+            </a>
+            , published December 14th, 2020.
+        </p>
         <h3 class="text-xl font-serif mb-2">
             Search for Reptiles
             @if(count($species) > 0 && count($species) != 1)
@@ -53,6 +67,11 @@
             'iguana',
             'boa',
             'cobra',
+            'carpet python',
+            'ball python',
+            'crested',
+            'snake',
+            'toed',
             'Anolis',
             'Rhacodactylus',
             'Corn Snake',
