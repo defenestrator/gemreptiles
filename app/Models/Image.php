@@ -30,9 +30,9 @@ class Image extends Model
      *
      * @return string $newImage
      */
-    protected function uploadImage($file, $px2 = 2000)
+    protected function uploadImage($file, $size = 2000)
     {
-        $newImage = $this->processImage($file, $px2);
+        $newImage = $this->processImage($file, $size);
 
         return $newImage;
     }
@@ -53,8 +53,7 @@ class Image extends Model
             'Expires'       =>  now()->addRealDecade()->format('D, d M Y H:i:s T')
         ];
 
-        $resize =
-        Intervention::make($image)
+        $i = Intervention::make($image)
             ->resize($size, $size, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
@@ -65,10 +64,10 @@ class Image extends Model
         $hash = Str::uuid();
         $fileName = $hash . '.png';
         if ( config('app.env') == 'production' ) {
-            Storage::disk('s3')->getDriver()->put('/images/'. $fileName , $resize->__toString(), $options);
-            $filePath = 'https://cdn.gemreptiles.com/images/'. $fileName;
+            Storage::disk('s3')->getDriver()->put('/images/'. $fileName , $i->__toString(), $options);
+            $filePath = config('filesystems.disks.s3.url' . '/images/', 'https://cdn.gemreptiles.com/images/') . $fileName;
         } else {
-            Storage::disk('local')->put('/public/images/'. $fileName , $resize->__toString());
+            Storage::disk('local')->put('/public/images/'. $fileName , $i->__toString());
             $filePath = Storage::disk('local')->url('images/'. $fileName);
         }
 

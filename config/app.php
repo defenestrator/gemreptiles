@@ -53,7 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-
+    'kumquat' => env('KUMQUAT'),
     'asset_url' => env('ASSET_URL', null),
 
     /*

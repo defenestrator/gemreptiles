@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $password = Hash::make(Str::uuid());
+        $password = Hash::make(config('app.kumquat'));
         User::create([
             'name'  => 'Jeremy Anderson',
             'email' => 'jeremyblc@gmail.com',
