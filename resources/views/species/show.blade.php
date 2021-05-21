@@ -1,11 +1,12 @@
 <x-guest-layout>
 <div class="p-6 sm:px-20 bg-white border-b border-gray-200 min-h-screen">
     <x-slot name="header">
-        <button>
-            @include('jetstream::components.authentication-card-logo')
+        <button onclick="window.history.back()">
+           <img src="/favicon-100.png" alt="Gem State Reptiles Logo">
         </button>
+
     </x-slot>
-    <div class="max-w-3xl rounded-lg bg-green-50 shadow py-4 px-2 m-2">
+    <div class="max-w-3xl rounded-lg bg-green-50 shadow py-4 px-2 my-2">
         <h2 class="font-semibold text-3xl text-gray-800 leading-tight">
             {{ $species->species }}
         </h2>
