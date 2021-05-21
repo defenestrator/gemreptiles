@@ -15,7 +15,7 @@
         <input class="rounded-md form-input
             border-green-500 focus:border-green-400"
             style="--tw-ring-color: rgba(59, 125, 43);" id="search-species" wire:model="search" type="text" placeholder="Search species..."/>
-        <button class="rounded bg-transparent py-1 px-2 text-gray-500" onclick="clearSearch()">clear</button>
+        <button class="rounded bg-transparent py-1 px-2 text-gray-400" onclick="clearSearch()">clear</button>
 
         @if(count($species) > 0)
         <div class="text-left pt-4">
@@ -107,6 +107,7 @@
         searchInput.value = ""
         function clearSearch() {
             searchInput.value = ""
+            searchInput.dispatchEvent(new Event('input'))
             searchInput.select()
         }
         var text = terms[Math.floor(Math.random() * terms.length)];
