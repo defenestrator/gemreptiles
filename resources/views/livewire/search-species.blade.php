@@ -48,20 +48,20 @@
         </div>
         @endif
         <p class="mt-4 p-2">
-            Our species search was built using data from the worldwide
+            Our species search was built using data from
             <a class="text-green-500" href="http://www.reptile-database.org/" title="The Reptile Database">
-                reptile species database</a>,
-                which serves as an academic reference on extant reptile species.
+                The Reptile Database</a>,
+                which serves as a global academic reference on extant reptile species.
         </p>
 
-            <p class="my-4 p-2">The current representation uses the latest consensus of worldwide herpetologists available, via the
+            <p class="my-4 p-2">The current representation implements a realtime search of the latest worldwide consensus on herpetologists' understanding of reptile species available, via the
             <a class="text-green-500" href="http://www.reptile-database.org/data/" title="Reptile Species Checklist">
-                reptile species checklist</a>,
+                Reptile Species Checklist</a>,
                 published December 14th, 2020.
         </p>
     </div>
 
-    @if(Route::currentRouteName()  == 'welcome')
+
     <script>
         const terms = [
             'iguana',
@@ -102,32 +102,38 @@
             'gopher',
             'blattfinger'
         ];
-        let searchInput = document.getElementById('search-species')
-        searchInput.select()
+    let searchInput = document.getElementById('search-species')
+    searchInput.select()
+    searchInput.value = ""
+
+    var text = terms[Math.floor(Math.random() * terms.length)];
+    var l=text.length;
+    var current = 0;
+    var time = 100;
+    var writeText = function() {
+        searchInput.value+=text[current];
+        if(current < l-1) {
+            current++;
+            setTimeout(function(){writeText()},time);
+            searchInput.dispatchEvent(new Event('input'));
+        } else {
+            searchInput.setAttribute('value',searchInput.value);
+            searchInput.dispatchEvent(new Event('input'));
+        }
+    }
+    function clearSearch() {
         searchInput.value = ""
-        function clearSearch() {
-            searchInput.value = ""
-            searchInput.dispatchEvent(new Event('input'))
-            searchInput.select()
-        }
-        var text = terms[Math.floor(Math.random() * terms.length)];
-        var l=text.length;
-        var current = 0;
-        var time = 100;
-        var writeText = function() {
-            searchInput.value+=text[current];
-            if(current < l-1) {
-                current++;
-                setTimeout(function(){writeText()},time);
-                searchInput.dispatchEvent(new Event('input'));
-            } else {
-                searchInput.setAttribute('value',searchInput.value);
-                searchInput.dispatchEvent(new Event('input'));
-            }
-        }
+        searchInput.dispatchEvent(new Event('input'))
+        searchInput.select()
+    }
+</script>
+
+@if(Route::currentRouteName()  == 'welcome')
+<script>
     window.onload =  function (event){
         setTimeout(function(){writeText()},time);
     };
 </script>
 @endif
+
 </div>
