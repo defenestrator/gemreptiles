@@ -57,8 +57,7 @@
             <p class="my-4 p-2">The current representation was built using the latest consensus of worldwide herpetologists, via the
             <a class="text-green-500" href="http://www.reptile-database.org/data/" title="Reptile Species Checklist">
                 reptile species checklist
-            </a>
-            , published December 14th, 2020.
+            </a>, published December 14th, 2020.
         </p>
     </div>
 
