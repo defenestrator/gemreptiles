@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FieldObservation;
+use App\FieldObservation;
 use Illuminate\Http\Request;
 
 class FieldObservationController extends Controller
@@ -41,7 +41,7 @@ class FieldObservationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FieldObservation  $fieldObservation
+     * @param  \App\FieldObservation  $fieldObservation
      * @return \Illuminate\Http\Response
      */
     public function show(FieldObservation $fieldObservation)
@@ -52,7 +52,7 @@ class FieldObservationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\FieldObservation  $fieldObservation
+     * @param  \App\FieldObservation  $fieldObservation
      * @return \Illuminate\Http\Response
      */
     public function edit(FieldObservation $fieldObservation)
@@ -64,7 +64,7 @@ class FieldObservationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FieldObservation  $fieldObservation
+     * @param  \App\FieldObservation  $fieldObservation
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, FieldObservation $fieldObservation)
@@ -75,7 +75,7 @@ class FieldObservationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\FieldObservation  $fieldObservation
+     * @param  \App\FieldObservation  $fieldObservation
      * @return \Illuminate\Http\Response
      */
     public function destroy(FieldObservation $fieldObservation)

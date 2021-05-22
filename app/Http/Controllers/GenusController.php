@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Genus;
+use App\Genus;
 use Illuminate\Http\Request;
 
 class GenusController extends Controller
@@ -41,7 +41,7 @@ class GenusController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Genus  $genus
+     * @param  \App\Genus  $genus
      * @return \Illuminate\Http\Response
      */
     public function show(Genus $genus)
@@ -52,7 +52,7 @@ class GenusController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Genus  $genus
+     * @param  \App\Genus  $genus
      * @return \Illuminate\Http\Response
      */
     public function edit(Genus $genus)
@@ -64,7 +64,7 @@ class GenusController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Genus  $genus
+     * @param  \App\Genus  $genus
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Genus $genus)
@@ -75,7 +75,7 @@ class GenusController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Genus  $genus
+     * @param  \App\Genus  $genus
      * @return \Illuminate\Http\Response
      */
     public function destroy(Genus $genus)

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AppellationSpecies;
+use App\AppellationSpecies;
 use Illuminate\Http\Request;
 
 class AppellationSpeciesController extends Controller
@@ -41,7 +41,7 @@ class AppellationSpeciesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AppellationSpecies  $appellationSpecies
+     * @param  \App\AppellationSpecies  $appellationSpecies
      * @return \Illuminate\Http\Response
      */
     public function show(AppellationSpecies $appellationSpecies)
@@ -52,7 +52,7 @@ class AppellationSpeciesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AppellationSpecies  $appellationSpecies
+     * @param  \App\AppellationSpecies  $appellationSpecies
      * @return \Illuminate\Http\Response
      */
     public function edit(AppellationSpecies $appellationSpecies)
@@ -64,7 +64,7 @@ class AppellationSpeciesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AppellationSpecies  $appellationSpecies
+     * @param  \App\AppellationSpecies  $appellationSpecies
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, AppellationSpecies $appellationSpecies)
@@ -75,7 +75,7 @@ class AppellationSpeciesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AppellationSpecies  $appellationSpecies
+     * @param  \App\AppellationSpecies  $appellationSpecies
      * @return \Illuminate\Http\Response
      */
     public function destroy(AppellationSpecies $appellationSpecies)

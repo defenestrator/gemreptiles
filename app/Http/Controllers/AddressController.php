@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Address;
+use App\Address;
 use Illuminate\Http\Request;
 
 class AddressController extends Controller
@@ -41,7 +41,7 @@ class AddressController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Address  $address
+     * @param  \App\Address  $address
      * @return \Illuminate\Http\Response
      */
     public function show(Address $address)
@@ -52,7 +52,7 @@ class AddressController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Address  $address
+     * @param  \App\Address  $address
      * @return \Illuminate\Http\Response
      */
     public function edit(Address $address)
@@ -64,7 +64,7 @@ class AddressController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Address  $address
+     * @param  \App\Address  $address
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Address $address)
@@ -75,7 +75,7 @@ class AddressController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Address  $address
+     * @param  \App\Address  $address
      * @return \Illuminate\Http\Response
      */
     public function destroy(Address $address)

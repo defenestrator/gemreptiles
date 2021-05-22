@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Complex;
+use App\Complex;
 use Illuminate\Http\Request;
 
 class ComplexController extends Controller
@@ -41,7 +41,7 @@ class ComplexController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Complex  $complex
+     * @param  \App\Complex  $complex
      * @return \Illuminate\Http\Response
      */
     public function show(Complex $complex)
@@ -52,7 +52,7 @@ class ComplexController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Complex  $complex
+     * @param  \App\Complex  $complex
      * @return \Illuminate\Http\Response
      */
     public function edit(Complex $complex)
@@ -64,7 +64,7 @@ class ComplexController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Complex  $complex
+     * @param  \App\Complex  $complex
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Complex $complex)
@@ -75,7 +75,7 @@ class ComplexController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Complex  $complex
+     * @param  \App\Complex  $complex
      * @return \Illuminate\Http\Response
      */
     public function destroy(Complex $complex)

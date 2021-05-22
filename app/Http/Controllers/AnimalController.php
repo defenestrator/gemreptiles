@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Animal;
+use App\Animal;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
@@ -41,7 +41,7 @@ class AnimalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Animal  $animal
+     * @param  \App\Animal  $animal
      * @return \Illuminate\Http\Response
      */
     public function show(Animal $animal)
@@ -52,7 +52,7 @@ class AnimalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Animal  $animal
+     * @param  \App\Animal  $animal
      * @return \Illuminate\Http\Response
      */
     public function edit(Animal $animal)
@@ -64,7 +64,7 @@ class AnimalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Animal  $animal
+     * @param  \App\Animal  $animal
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Animal $animal)
@@ -75,7 +75,7 @@ class AnimalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Animal  $animal
+     * @param  \App\Animal  $animal
      * @return \Illuminate\Http\Response
      */
     public function destroy(Animal $animal)

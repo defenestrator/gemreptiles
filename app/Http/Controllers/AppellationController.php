@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appellation;
+use App\Appellation;
 use Illuminate\Http\Request;
 
 class AppellationController extends Controller
@@ -41,7 +41,7 @@ class AppellationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Appellation  $appellation
+     * @param  \App\Appellation  $appellation
      * @return \Illuminate\Http\Response
      */
     public function show(Appellation $appellation)
@@ -52,7 +52,7 @@ class AppellationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Appellation  $appellation
+     * @param  \App\Appellation  $appellation
      * @return \Illuminate\Http\Response
      */
     public function edit(Appellation $appellation)
@@ -64,7 +64,7 @@ class AppellationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Appellation  $appellation
+     * @param  \App\Appellation  $appellation
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Appellation $appellation)
@@ -75,7 +75,7 @@ class AppellationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Appellation  $appellation
+     * @param  \App\Appellation  $appellation
      * @return \Illuminate\Http\Response
      */
     public function destroy(Appellation $appellation)

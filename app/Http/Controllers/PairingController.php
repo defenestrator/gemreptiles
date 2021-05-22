@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pairing;
+use App\Pairing;
 use Illuminate\Http\Request;
 
 class PairingController extends Controller
@@ -41,7 +41,7 @@ class PairingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pairing  $pairing
+     * @param  \App\Pairing  $pairing
      * @return \Illuminate\Http\Response
      */
     public function show(Pairing $pairing)
@@ -52,7 +52,7 @@ class PairingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pairing  $pairing
+     * @param  \App\Pairing  $pairing
      * @return \Illuminate\Http\Response
      */
     public function edit(Pairing $pairing)
@@ -64,7 +64,7 @@ class PairingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pairing  $pairing
+     * @param  \App\Pairing  $pairing
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Pairing $pairing)
@@ -75,7 +75,7 @@ class PairingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pairing  $pairing
+     * @param  \App\Pairing  $pairing
      * @return \Illuminate\Http\Response
      */
     public function destroy(Pairing $pairing)

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Length;
+use App\Length;
 use Illuminate\Http\Request;
 
 class LengthController extends Controller
@@ -41,7 +41,7 @@ class LengthController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Length  $length
+     * @param  \App\Length  $length
      * @return \Illuminate\Http\Response
      */
     public function show(Length $length)
@@ -52,7 +52,7 @@ class LengthController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Length  $length
+     * @param  \App\Length  $length
      * @return \Illuminate\Http\Response
      */
     public function edit(Length $length)
@@ -64,7 +64,7 @@ class LengthController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Length  $length
+     * @param  \App\Length  $length
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Length $length)
@@ -75,7 +75,7 @@ class LengthController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Length  $length
+     * @param  \App\Length  $length
      * @return \Illuminate\Http\Response
      */
     public function destroy(Length $length)

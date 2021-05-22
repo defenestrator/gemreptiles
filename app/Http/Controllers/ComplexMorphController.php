@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ComplexMorph;
+use App\ComplexMorph;
 use Illuminate\Http\Request;
 
 class ComplexMorphController extends Controller
@@ -41,7 +41,7 @@ class ComplexMorphController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ComplexMorph  $complexMorph
+     * @param  \App\ComplexMorph  $complexMorph
      * @return \Illuminate\Http\Response
      */
     public function show(ComplexMorph $complexMorph)
@@ -52,7 +52,7 @@ class ComplexMorphController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ComplexMorph  $complexMorph
+     * @param  \App\ComplexMorph  $complexMorph
      * @return \Illuminate\Http\Response
      */
     public function edit(ComplexMorph $complexMorph)
@@ -64,7 +64,7 @@ class ComplexMorphController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ComplexMorph  $complexMorph
+     * @param  \App\ComplexMorph  $complexMorph
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, ComplexMorph $complexMorph)
@@ -75,7 +75,7 @@ class ComplexMorphController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ComplexMorph  $complexMorph
+     * @param  \App\ComplexMorph  $complexMorph
      * @return \Illuminate\Http\Response
      */
     public function destroy(ComplexMorph $complexMorph)

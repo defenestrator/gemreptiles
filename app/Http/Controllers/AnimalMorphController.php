@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AnimalMorph;
+use App\AnimalMorph;
 use Illuminate\Http\Request;
 
 class AnimalMorphController extends Controller
@@ -41,7 +41,7 @@ class AnimalMorphController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AnimalMorph  $animalMorph
+     * @param  \App\AnimalMorph  $animalMorph
      * @return \Illuminate\Http\Response
      */
     public function show(AnimalMorph $animalMorph)
@@ -52,7 +52,7 @@ class AnimalMorphController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AnimalMorph  $animalMorph
+     * @param  \App\AnimalMorph  $animalMorph
      * @return \Illuminate\Http\Response
      */
     public function edit(AnimalMorph $animalMorph)
@@ -64,7 +64,7 @@ class AnimalMorphController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AnimalMorph  $animalMorph
+     * @param  \App\AnimalMorph  $animalMorph
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, AnimalMorph $animalMorph)
@@ -75,7 +75,7 @@ class AnimalMorphController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AnimalMorph  $animalMorph
+     * @param  \App\AnimalMorph  $animalMorph
      * @return \Illuminate\Http\Response
      */
     public function destroy(AnimalMorph $animalMorph)

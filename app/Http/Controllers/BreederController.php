@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Breeder;
+use App\Breeder;
 use Illuminate\Http\Request;
 
 class BreederController extends Controller
@@ -41,7 +41,7 @@ class BreederController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Breeder  $breeder
+     * @param  \App\Breeder  $breeder
      * @return \Illuminate\Http\Response
      */
     public function show(Breeder $breeder)
@@ -52,7 +52,7 @@ class BreederController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Breeder  $breeder
+     * @param  \App\Breeder  $breeder
      * @return \Illuminate\Http\Response
      */
     public function edit(Breeder $breeder)
@@ -64,7 +64,7 @@ class BreederController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Breeder  $breeder
+     * @param  \App\Breeder  $breeder
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Breeder $breeder)
@@ -75,7 +75,7 @@ class BreederController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Breeder  $breeder
+     * @param  \App\Breeder  $breeder
      * @return \Illuminate\Http\Response
      */
     public function destroy(Breeder $breeder)

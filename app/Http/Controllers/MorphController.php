@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Morph;
+use App\Morph;
 use Illuminate\Http\Request;
 
 class MorphController extends Controller
@@ -41,7 +41,7 @@ class MorphController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Morph  $morph
+     * @param  \App\Morph  $morph
      * @return \Illuminate\Http\Response
      */
     public function show(Morph $morph)
@@ -52,7 +52,7 @@ class MorphController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Morph  $morph
+     * @param  \App\Morph  $morph
      * @return \Illuminate\Http\Response
      */
     public function edit(Morph $morph)
@@ -64,7 +64,7 @@ class MorphController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Morph  $morph
+     * @param  \App\Morph  $morph
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Morph $morph)
@@ -75,7 +75,7 @@ class MorphController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Morph  $morph
+     * @param  \App\Morph  $morph
      * @return \Illuminate\Http\Response
      */
     public function destroy(Morph $morph)

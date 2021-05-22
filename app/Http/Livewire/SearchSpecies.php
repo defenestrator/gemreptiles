@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Species;
+use App\Species;
 use Livewire\Component;
 use Illuminate\Support\Facades\Cache;
 use App\Traits\Sluggable;

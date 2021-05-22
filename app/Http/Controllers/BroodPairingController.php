@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BroodPairing;
+use App\BroodPairing;
 use Illuminate\Http\Request;
 
 class BroodPairingController extends Controller
@@ -41,7 +41,7 @@ class BroodPairingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BroodPairing  $broodPairing
+     * @param  \App\BroodPairing  $broodPairing
      * @return \Illuminate\Http\Response
      */
     public function show(BroodPairing $broodPairing)
@@ -52,7 +52,7 @@ class BroodPairingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BroodPairing  $broodPairing
+     * @param  \App\BroodPairing  $broodPairing
      * @return \Illuminate\Http\Response
      */
     public function edit(BroodPairing $broodPairing)
@@ -64,7 +64,7 @@ class BroodPairingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BroodPairing  $broodPairing
+     * @param  \App\BroodPairing  $broodPairing
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, BroodPairing $broodPairing)
@@ -75,7 +75,7 @@ class BroodPairingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BroodPairing  $broodPairing
+     * @param  \App\BroodPairing  $broodPairing
      * @return \Illuminate\Http\Response
      */
     public function destroy(BroodPairing $broodPairing)
