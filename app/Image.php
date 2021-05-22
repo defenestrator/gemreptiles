@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 use Dyrynda\Database\Support\GeneratesUuid;
 use Dyrynda\Database\Casts\EfficientUuid;
 use Illuminate\Support\Facades\Storage;
@@ -24,7 +25,43 @@ class Image extends Model
     }
 
     /**
-     * uploadImage
+     * Scope by Imageable Type
+     *
+     * $value can be a namespaced class string, or a POPO class
+     *
+     * @param Builder $query
+     * @param string $value
+     * @return Builder $query
+     */
+    public function scopeType(Builder $query, $value)
+    {
+        return $query->where('imageable_type', $value);
+    }
+
+    /**
+     * Scope by Animal
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeAnimals($query)
+    {
+        return $this->ScopeByType($query, "App\Animal");
+    }
+
+    /**
+     * Scope by Species
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeSpecies($query)
+    {
+        return $this->scopeByType($query, "App\Species");
+    }
+
+    /**
+     * Upload an Image
      *
      * @param  mixed $file
      *
