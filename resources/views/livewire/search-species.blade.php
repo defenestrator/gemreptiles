@@ -54,7 +54,8 @@
                 which serves as a global academic reference on extant reptile species.
         </p>
 
-            <p class="my-4 p-2">The current representation implements a realtime search of the latest worldwide consensus on herpetologists' understanding of reptile species available, via the
+            <p class="my-4 p-2">The current representation implements a realtime search of the latest worldwide consensus available on herpetologists' collective
+            understanding of reptile species via the
             <a class="text-green-500" href="http://www.reptile-database.org/data/" title="Reptile Species Checklist">
                 Reptile Species Checklist</a>,
                 published December 14th, 2020.
