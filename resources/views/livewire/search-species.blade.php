@@ -58,7 +58,7 @@
             understanding of reptile species via the
             <a class="text-green-500" href="http://www.reptile-database.org/data/" title="Reptile Species Checklist">
                 Reptile Species Checklist</a>,
-                published December 14th, 2020.
+                as published on December 14th, 2020.
         </p>
     </div>
 
