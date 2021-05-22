@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\ComplexMorph;
+use App\ComplexMorph;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ComplexMorphFactory extends Factory

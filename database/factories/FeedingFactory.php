@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Feeding;
+use App\Feeding;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FeedingFactory extends Factory

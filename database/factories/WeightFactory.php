@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Weight;
+use App\Weight;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class WeightFactory extends Factory

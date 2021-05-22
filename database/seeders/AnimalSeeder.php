@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Animal;
+use App\Animal;
 use Illuminate\Support\Str;
 
 class AnimalSeeder extends Seeder

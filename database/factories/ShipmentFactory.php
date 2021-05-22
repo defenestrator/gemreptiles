@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Shipment;
+use App\Shipment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ShipmentFactory extends Factory

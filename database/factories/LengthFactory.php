@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Length;
+use App\Length;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LengthFactory extends Factory

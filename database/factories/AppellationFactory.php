@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Appellation;
+use App\Appellation;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AppellationFactory extends Factory

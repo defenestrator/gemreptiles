@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Species;
+use App\Species;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Log;
 

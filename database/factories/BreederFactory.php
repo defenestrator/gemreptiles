@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Breeder;
+use App\Breeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BreederFactory extends Factory

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Morph;
+use App\Morph;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MorphFactory extends Factory

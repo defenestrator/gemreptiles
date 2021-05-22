@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Genus;
+use App\Genus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class GenusFactory extends Factory

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\AnimalMorph;
+use App\AnimalMorph;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AnimalMorphFactory extends Factory
