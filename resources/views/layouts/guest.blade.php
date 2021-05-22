@@ -8,8 +8,12 @@
         <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
         <link rel="icon" href="favicon.png">
         <title>We're the wild-type :: {{ " " . config('app.name', 'Gem State Reptiles') }}</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Fauna+One&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fauna+One&family=Montserrat:wght@200;400&display=swap">
+        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Fauna+One&family=Montserrat:wght@200;400&display=swap">
+        <noscript>
+            <link href="https://fonts.googleapis.com/css2?family=Fauna+One&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+        </noscript>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         @livewireStyles

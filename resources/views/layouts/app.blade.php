@@ -9,7 +9,7 @@
         <link rel="icon" href="favicon.png">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>We're the wild-type :: {{ " " . config('app.name', 'Gem State Reptiles') }}</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fauna+One&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         @livewireStyles
