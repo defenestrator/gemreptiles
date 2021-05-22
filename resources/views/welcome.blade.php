@@ -62,7 +62,7 @@
             @endif
 
             <div class="max-w-6xl mx-auto py-4 sm:px-6 lg:px-8 mt-8">
-                <div class="container text-center">
+                <div class="container text-center mt-4">
                     <img class="mx-auto text-center object-contain w-100" src="favicon.png" style="padding-bottom:0; max-width:100px; " alt="Hatched in Idaho, 2004">
                 </div>
                 <div class="container text-center">
@@ -72,7 +72,7 @@
                 </div>
                 <div class="container text-right px-2">
                     <h2 class="text-yellow-600 sans"
-                        style=" margin-top:0; line-height:1; text-align:right; font-size:1.2rem; font-weight:400; margin-right:0.66667rem;">
+                        style=" margin-top:0; line-height:1; text-align:right; font-size:1.0rem; font-weight:400; margin-right:0.44667rem;">
                         We're the wild-type
                     </h2>
                 </div>
