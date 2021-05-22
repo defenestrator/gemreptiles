@@ -61,8 +61,6 @@
                 as published on December 14th, 2020.
         </p>
     </div>
-
-
     <script>
         const terms = [
             'iguana',
@@ -132,7 +130,7 @@
 @if(Route::currentRouteName()  == 'welcome')
 <script>
     window.onload =  function (event){
-        //setTimeout(function(){writeText()},time);
+        setTimeout(function(){writeText()},time);
     };
 </script>
 @endif
