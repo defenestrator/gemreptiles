@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "cviebrock/eloquent-sluggable": "^8.0",
+        "doctrine/dbal": "^3.1",
         "dyrynda/laravel-efficient-uuid": "^4.3",
         "dyrynda/laravel-model-uuid": "^6.4",
         "fideloper/proxy": "^4.4",
@@ -27,7 +28,6 @@
         "sendgrid/sendgrid": "^7.9"
     },
     "require-dev": {
-        "doctrine/dbal": "^3.1",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
