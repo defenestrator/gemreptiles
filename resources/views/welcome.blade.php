@@ -63,7 +63,7 @@
 
             <div class="max-w-6xl mx-auto py-4 sm:px-6 lg:px-8 mt-8">
                 <div class="container text-center">
-                    <img class="mx-auto text-center object-contain" src="favicon.png" style="padding-bottom:0; " alt="Hatched in Idaho, 2004">
+                    <img class="mx-auto text-center object-contain w-100" src="favicon.png" style="padding-bottom:0; " alt="Hatched in Idaho, 2004">
                 </div>
                 <div class="container text-center">
                     <h1 class="text-center px-2 pb-0 mb-0" style="font-size:2.0rem; margin:0 auto; padding-bottom:0; margin-top:-1rem;">
