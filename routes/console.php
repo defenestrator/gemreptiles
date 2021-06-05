@@ -18,7 +18,3 @@ use App\Console\Commands\Heartbeat;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
-
-Artisan::command('heartbeat', function () {
-    return new Heartbeat;
-})->purpose('Notify Envoyer heartbeat URL');
