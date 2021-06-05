@@ -25,8 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-        $schedule->job(new Heartbeat)->everyFiveMinutes();
+        $schedule->job(new Heartbeat, 'default')->everyFiveMinutes()->thenPing('http://beats.envoyer.io/heartbeat/3QeUKYWIlWUwzw4');
     }
 
     /**

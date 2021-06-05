@@ -31,15 +31,6 @@ class Heartbeat implements ShouldQueue
      */
     public function handle()
     {
-        $heartbeatUrl ='http://beats.envoyer.io/heartbeat/3QeUKYWIlWUwzw4';
-        $options = array(
-            'http' => array(
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-                'method'  => 'GET'
-            )
-        );
-        $context  = stream_context_create($options);
-        $result = file_get_contents($heartbeatUrl, false, $context);
-        if ($result === FALSE) { Log::warning("The hearbeat URL appears to be invalid or non-responsive"); }
+        return true; // You know, probably.
     }
 }
