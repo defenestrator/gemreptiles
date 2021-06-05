@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Jobs\Heartbeat;
+use App\Commands\Heartbeat;
 
 class Kernel extends ConsoleKernel
 {
@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->job(new Heartbeat, 'default')->everyFiveMinutes()->thenPing('http://beats.envoyer.io/heartbeat/3QeUKYWIlWUwzw4');
+        $schedule->command('heartbeat')->everyFiveMinutes()->thenPing('http://beats.envoyer.io/heartbeat/3QeUKYWIlWUwzw4');
     }
 
     /**
