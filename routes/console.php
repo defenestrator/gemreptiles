@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
-
+use App\Console\Commands\Heartbeat;
 /*
 |--------------------------------------------------------------------------
 | Console Routes
@@ -20,6 +20,5 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Artisan::command('heartbeat', function () {
-    $this->comment('Tick tock the application is not dead I guess.');
-    Log::info("Heartbeat uhhh...beated?");
+    return new Heartbeat;
 })->purpose('Notify Envoyer heartbeat URL');
