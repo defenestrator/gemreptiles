@@ -24,7 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('heartbeat')->everyFiveMinutes()->thenPing('http://beats.envoyer.io/heartbeat/3QeUKYWIlWUwzw4');
+        if (config('app.env') == 'production') {
+            $schedule->command('heartbeat')->everyFiveMinutes()->thenPing('http://beats.envoyer.io/heartbeat/3QeUKYWIlWUwzw4');
+        }
+
     }
 
     /**
