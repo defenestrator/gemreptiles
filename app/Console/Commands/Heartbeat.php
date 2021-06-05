@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class Heartbeat extends Command
 {
@@ -37,6 +38,8 @@ class Heartbeat extends Command
      */
     public function handle()
     {
+        $this->comment('Tick tock the application is not dead I guess.');
+        Log::info("Heartbeat uhhh...beated?");
         return 0;
     }
 }
