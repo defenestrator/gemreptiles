@@ -38,8 +38,12 @@ class Heartbeat extends Command
      */
     public function handle()
     {
-        $this->comment('Tick tock the application is not dead I guess.');
-        Log::info("Heartbeat uhhh...beated?");
+        if (config('app.env') == "production") {
+            $this->comment('The application is undead!');
+            Log::info("Heartbeat uhhh...beated?");
+        } else {
+            $this->comment('This command only executes on production');
+        }
         return 0;
     }
 }
