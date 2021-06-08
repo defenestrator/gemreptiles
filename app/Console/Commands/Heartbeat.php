@@ -19,7 +19,7 @@ class Heartbeat extends Command
      *
      * @var string
      */
-    protected $description = 'Tick tock the application is not dead I guess.';
+    protected $description = 'Checkology heartbeat.';
 
     /**
      * Create a new command instance.
@@ -38,11 +38,12 @@ class Heartbeat extends Command
      */
     public function handle()
     {
-        if (config('app.env') == "production") {
-            $this->comment('The application is undead!');
-            Log::info("Heartbeat uhhh...beated?");
+        if (config('app.env') == "production" || config('app.env') == "development") {
+            $this->comment('The gemreptiles.com application is running smoothly!');
+            Log::info("'The gemreptiles.com application is running smoothly!'");
         } else {
             $this->comment('This command only executes on production');
+            // But not really, it runs on development too
         }
         return 0;
     }
