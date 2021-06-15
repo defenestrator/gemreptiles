@@ -85,9 +85,9 @@ class Image extends Model
     private function processImage($image, $size)
     {
         $options = [
-            'visibility'    =>  'public',
-            'Cache-Control' =>  'max-age=31540000',
-            'Expires'       =>  now()->addRealDecade()->format('D, d M Y H:i:s T')
+            // 'visibility'    =>  'public',
+            // 'Cache-Control' =>  'max-age=31540000',
+            // 'Expires'       =>  now()->addRealDecade()->format('D, d M Y H:i:s T')
         ];
 
         $i = Intervention::make($image)
