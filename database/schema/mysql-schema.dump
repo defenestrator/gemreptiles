@@ -12,6 +12,7 @@ CREATE TABLE `addresses` (
   `uuid` binary(16) NOT NULL,
   `addressable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `addressable_id` bigint unsigned NOT NULL,
+  `nickname` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `country` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `street_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `unit_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -245,6 +246,7 @@ DROP TABLE IF EXISTS `field_observations`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `field_observations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `species_id` bigint unsigned NOT NULL,
   `title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `notes` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `observed` date NOT NULL,
@@ -255,7 +257,8 @@ CREATE TABLE `field_observations` (
   `doa` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `field_observations_species_id_index` (`species_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `genera`;
@@ -279,9 +282,12 @@ CREATE TABLE `images` (
   `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `imageable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `imageable_id` bigint unsigned NOT NULL,
+  `license` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `exif` json DEFAULT NULL,
   `copyright` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `author` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` point DEFAULT NULL,
+  `latitude` float(10,8) unsigned DEFAULT NULL,
+  `longitude` float(11,8) unsigned DEFAULT NULL,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -334,6 +340,21 @@ CREATE TABLE `morphs` (
   KEY `morphs_complex_id_foreign` (`complex_id`),
   CONSTRAINT `1` FOREIGN KEY (`species_id`) REFERENCES `species` (`id`),
   CONSTRAINT `morphs_complex_id_foreign` FOREIGN KEY (`complex_id`) REFERENCES `complexes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `notes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `notes` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `notable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notable_id` bigint unsigned NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `custom_data` json DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `notes_notable_type_notable_id_index` (`notable_type`,`notable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `pairings`;
@@ -446,7 +467,7 @@ CREATE TABLE `vendors` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `uuid` binary(16) NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `website` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `morph_market` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -460,6 +481,35 @@ CREATE TABLE `vendors` (
   UNIQUE KEY `vendors_uuid_unique` (`uuid`),
   UNIQUE KEY `vendors_name_unique` (`name`),
   UNIQUE KEY `vendors_slug_unique` (`slug`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `vet_visits`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vet_visits` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `animal_id` bigint unsigned NOT NULL,
+  `veterinarian_id` bigint unsigned NOT NULL,
+  `cost` mediumint unsigned NOT NULL,
+  `date_of_visit` date NOT NULL,
+  `reason_for_visit` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `vet_visits_animal_id_index` (`animal_id`),
+  KEY `vet_visits_veterinarian_id_index` (`veterinarian_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `veterinarians`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `veterinarians` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `doctor_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `clinic_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `weights`;
@@ -518,3 +568,7 @@ INSERT INTO `migrations` VALUES (31,'2021_05_01_030510_create_vendors_table',7);
 INSERT INTO `migrations` VALUES (32,'2021_05_01_031233_modify_animals_table',7);
 INSERT INTO `migrations` VALUES (35,'2021_05_21_015200_create_field_observations_table',8);
 INSERT INTO `migrations` VALUES (36,'2021_05_21_015213_modify_animals_table',9);
+INSERT INTO `migrations` VALUES (38,'2021_05_21_181701_modify_field_observations_table',10);
+INSERT INTO `migrations` VALUES (39,'2021_05_21_182710_modify_animals',10);
+INSERT INTO `migrations` VALUES (40,'2021_05_21_232510_create_notes_table',11);
+INSERT INTO `migrations` VALUES (41,'2021_06_07_160438_create_vet_visits_table',12);

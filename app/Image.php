@@ -95,11 +95,11 @@ class Image extends Model
                 $constraint->aspectRatio();
                 $constraint->upsize();
             })
-            ->encode('png')
+            ->encode('webp')
             ->stream();
 
         $hash = Str::uuid();
-        $fileName = $hash . '.png';
+        $fileName = $hash . '.webp';
         if ( config('app.env') == 'production' ) {
             Storage::disk('s3')->getDriver()->put('/images/'. $fileName , $i->__toString(), $options);
             $filePath = config('filesystems.disks.s3.url' . '/images/', 'https://cdn.gemreptiles.com/images/') . $fileName;

@@ -11,20 +11,21 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/Route::domain(config('app.domain'))->group(function () {
+    Route::namespace('\\App\\Http\\Controllers')->group(function () {
+        Route::middleware('cache.headers:public;max_age=7200;etag')->group(function () {
+            Route::get('/', 'WelcomeController@index')->name('welcome');
+            Route::resource('/species', SpeciesController::class);
+            Route::resource('/animals', AnimalController::class);
+            Route::resource('/breeders', BreederController::class);
+            Route::resource('/vendors', VendorController::class);
+        });
 
-Route::namespace('\\App\\Http\\Controllers')->group(function () {
-    Route::middleware('cache.headers:public;max_age=7200;etag')->group(function () {
-        Route::get('/', 'WelcomeController@index')->name('welcome');
-        Route::resource('/species', SpeciesController::class);
-        Route::resource('/animals', AnimalController::class);
+        Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+            Route::get('/dashboard',  'DashboardController@index')->name('dashboard');
+        });
     });
 
-    Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-        Route::get('/dashboard',  'DashboardController@index')->name('dashboard');
-
-
-    });
 });
 
 
