@@ -92,12 +92,15 @@ class User extends Authenticatable implements MustVerifyEmail
 
             $fileName = $hash . '.webp';
 
-            Storage::disk('s3')->getDriver()->put('/profile-photos/'. $fileName , $i->__toString(), $options);
-
-            $filePath = "/profile-photos/" . $fileName;
+            if (config('jetstream.profile_photo_disk') == "local")
+            {
+                Storage::disk($this->profilePhotoDisk())->getDriver()->put('public/profile-photos/'. $fileName , $i->__toString(), $options);
+            } else {
+                Storage::disk($this->profilePhotoDisk())->getDriver()->put("profile-photos/". $fileName , $i->__toString(), $options);
+            }
 
             $this->forceFill([
-                'profile_photo_path' => $filePath
+                'profile_photo_path' => "profile-photos/" . $fileName
             ])->save();
 
             if ($previous) {
