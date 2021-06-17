@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\Facades\Image as Intervention;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -80,11 +80,13 @@ class User extends Authenticatable implements MustVerifyEmail
             ];
 
             $size = 300;
-            $i = Image::make($photo)
+            $i = Intervention::make($photo)
+
             ->resize($size, $size, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             })
+            ->fit($size, $size)
             ->encode('webp')
             ->stream();
 
