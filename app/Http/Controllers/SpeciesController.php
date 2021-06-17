@@ -47,7 +47,7 @@ class SpeciesController extends Controller
     public function show(Species $species)
     {
 
-        return view('species.species-show', ['species' => $species]);
+        return view('species.show-species', ['species' => $species]);
     }
 
     /**

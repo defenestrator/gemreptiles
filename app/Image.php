@@ -10,6 +10,7 @@ use Dyrynda\Database\Casts\EfficientUuid;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image as Intervention;
+use Illuminate\Http\UploadedFile;
 
 class Image extends Model
 {
@@ -17,6 +18,10 @@ class Image extends Model
 
     protected $casts = [
         'uuid' => EfficientUuid::class,
+    ];
+
+    protected $fillable = [
+        'url', 'license', 'copyright', 'author', 'title'
     ];
 
     public function imageable()
@@ -67,9 +72,37 @@ class Image extends Model
      *
      * @return string $newImage
      */
-    protected function uploadImage($file, $size = 2000)
+    protected function uploadImage(UploadedFile $file, $size = 2000)
     {
+        $exif = exif_read_data($file, 0, true);
+
+        $title = $file->originalName;
+
+        $location = $this->getImageLocation($exif);
+
+        $copyright = '';
+
+        $license = '';
+
+        $lat = $long = null;
+
         $newImage = $this->processImage($file, $size);
+
+        if ($location != false && is_array($location) ) {
+            $lat = $location->latitude;
+            $long = $location->longitude;
+        }
+
+
+        $this->forceFill([
+            $this->url => $newImage,
+            $this->exif => $exif,
+            $this->latitude => $lat,
+            $this->longitude => $long,
+            $this->title => $title,
+            $this->license => $license,
+            $this->copyright => $copyright
+        ])->save();
 
         return $newImage;
     }
@@ -82,11 +115,12 @@ class Image extends Model
      *
      * @return array $filePath
      */
-    private function processImage($image, $size)
+    protected function processImage($image, $size)
     {
         $options = [
+            // These headers are set by default in `config/filesystems.php`
             // 'visibility'    =>  'public',
-            // 'Cache-Control' =>  'max-age=31540000',
+            // 'Cache-Control' =>  'max-age=315400000',
             // 'Expires'       =>  now()->addRealDecade()->format('D, d M Y H:i:s T')
         ];
 
@@ -104,10 +138,44 @@ class Image extends Model
             Storage::disk('s3')->getDriver()->put('/images/'. $fileName , $i->__toString(), $options);
             $filePath = config('filesystems.disks.s3.url' . '/images/', 'https://cdn.gemreptiles.com/images/') . $fileName;
         } else {
-            Storage::disk('local')->put('/public/images/'. $fileName , $i->__toString());
+            Storage::disk('local')->put('/images/'. $fileName , $i->__toString());
             $filePath = Storage::disk('local')->url('images/'. $fileName);
         }
 
         return $filePath;
+    }
+
+    /**
+     * getImageLocation
+     * Returns an array of latitude and longitude from the Image file
+     * @param $exif
+     * @return multitype:array|boolean
+     */
+    protected function getImageLocation($exif = '')
+    {
+        if(isset($exif['GPS']) ){
+            $GPSLatitudeRef = $exif['GPS']['GPSLatitudeRef'];
+            $GPSLatitude    = $exif['GPS']['GPSLatitude'];
+            $GPSLongitudeRef= $exif['GPS']['GPSLongitudeRef'];
+            $GPSLongitude   = $exif['GPS']['GPSLongitude'];
+
+            $lat_degrees = count($GPSLatitude) > 0 ? gps2Num($GPSLatitude[0]) : 0;
+            $lat_minutes = count($GPSLatitude) > 1 ? gps2Num($GPSLatitude[1]) : 0;
+            $lat_seconds = count($GPSLatitude) > 2 ? gps2Num($GPSLatitude[2]) : 0;
+
+            $lon_degrees = count($GPSLongitude) > 0 ? gps2Num($GPSLongitude[0]) : 0;
+            $lon_minutes = count($GPSLongitude) > 1 ? gps2Num($GPSLongitude[1]) : 0;
+            $lon_seconds = count($GPSLongitude) > 2 ? gps2Num($GPSLongitude[2]) : 0;
+
+            $lat_direction = ($GPSLatitudeRef == 'W' or $GPSLatitudeRef == 'S') ? -1 : 1;
+            $lon_direction = ($GPSLongitudeRef == 'W' or $GPSLongitudeRef == 'S') ? -1 : 1;
+
+            $latitude = $lat_direction * ($lat_degrees + ($lat_minutes / 60) + ($lat_seconds / (60*60)));
+            $longitude = $lon_direction * ($lon_degrees + ($lon_minutes / 60) + ($lon_seconds / (60*60)));
+
+            return array('latitude'=>$latitude, 'longitude'=>$longitude);
+        } else {
+            return false;
+        }
     }
 }
