@@ -10,7 +10,7 @@ class SendgridRescueController extends Controller
 {
     public function index()
     {
-        if ( Auth::check() && Auth::user()->email == "jeremyblc@gmail.com" ) {
+        if ( Auth::check() && Auth::user()->email === "jeremyblc@gmail.com" ) {
             Mail::to('sendgridtesting@gmail.com')->send(new RescueSendgrid);
             return "Sent!";
         }

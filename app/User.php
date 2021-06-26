@@ -103,7 +103,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
             $fileName = $hash . '.webp';
 
-            if (config('jetstream.profile_photo_disk') == "local")
+            if (config('jetstream.profile_photo_disk') === "local")
             {
                 Storage::disk($this->profilePhotoDisk())->getDriver()->put('public/profile-photos/'. $fileName , $i->__toString(), $options);
             } else {
