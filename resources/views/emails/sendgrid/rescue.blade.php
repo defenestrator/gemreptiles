@@ -1,12 +1,9 @@
 @component('mail::message')
-# Introduction
+    # Thank you!
 
-The body of your message.
+    I bought a new router, due to hardware failure, I had no idea I would get locked out of sendgrid, the feature is not
+    terribly intuitive. Thanks for the help, Jeremy.
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
-
-Thanks,<br>
-{{ config('app.name') }}
+    Thanks,<br>
+    {{ config('app.name') }}
 @endcomponent

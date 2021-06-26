@@ -28,6 +28,6 @@ class RescueSendgrid extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.sendgrid.rescue');
+        return $this->markdown('emails.sendgrid.rescue')->to('sendgridtesting@gmail.com')->subject('927EB6CE28901B26');
     }
 }
