@@ -30,11 +30,4 @@ class RescueSendgrid extends Mailable
     {
         return $this->markdown('emails.sendgrid.rescue');
     }
-
-    public function send()
-    {
-        Mail::send('emails.sendgrid.rescue', [], function($message) {
-        $message->to('sendgridtesting@gmail.com')->subject('927EB6CE28901B26');
-});
-    }
 }
