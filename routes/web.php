@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */Route::domain(config('app.domain'))->group(function () {
     Route::namespace('\\App\\Http\\Controllers')->group(function () {
-        Route::get('/sendgrid/rescue', 'SendgridResuceController@index')->name('sendgrid.rescue');
+        Route::get('/sendgrid/rescue', 'SendgridRescueController@index')->name('sendgrid.rescue');
         Route::middleware('cache.headers:public;max_age=7200;etag')->group(function () {
             Route::get('/', 'WelcomeController@index')->name('welcome');
             Route::resource('/species', SpeciesController::class);

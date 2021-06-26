@@ -11,5 +11,6 @@ class SendgridRescueController extends Controller
     public function index()
     {
         Mail::to('sendgridtesting@gmail.com')->send(new RescueSendgrid);
+        return "Sent!";
     }
 }
