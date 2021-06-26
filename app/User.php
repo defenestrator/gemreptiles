@@ -64,6 +64,16 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
+     * Get the default profile photo URL if no profile photo has been uploaded.
+     *
+     * @return string
+     */
+    protected function defaultProfilePhotoUrl()
+    {
+        return 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&color=183f0d&background=EBF4EB';
+    }
+
+    /**
      * Update the user's profile photo.
      *
      * @param  \Illuminate\Http\UploadedFile  $photo
@@ -72,16 +82,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function updateProfilePhoto(UploadedFile $photo)
     {
         tap($this->profile_photo_path, function ($previous) use ($photo) {
-
             $options = [
                 'visibility'    =>  'public',
                 'Cache-Control' =>  'max-age=31540000',
                 'Expires'       =>  now()->addRealDecade()->format('D, d M Y H:i:s T')
             ];
 
-            $size = 300;
-            $i = Intervention::make($photo)
+            $size = 200;
 
+            $i = Intervention::make($photo)
             ->resize($size, $size, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
