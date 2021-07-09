@@ -14,4 +14,9 @@ class Address extends Model
     protected $casts = [
         'uuid' => EfficientUuid::class,
     ];
+
+    public function addressable()
+    {
+        return $this->morphTo();
+    }
 }

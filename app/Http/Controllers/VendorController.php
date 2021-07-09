@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Vendor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class VendorController extends Controller
 {
@@ -14,7 +15,8 @@ class VendorController extends Controller
      */
     public function index()
     {
-        //
+        $vendors = Vendor::all();
+        return view('vendor.index')->with(['vendors' => $vendors]);
     }
 
     /**
@@ -24,7 +26,7 @@ class VendorController extends Controller
      */
     public function create()
     {
-        //
+        return view('vendor.create');
     }
 
     /**

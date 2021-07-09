@@ -56,7 +56,6 @@ return [
                 'prefix' => 'gem_reptiles_image_cache',
             ],
         ],
-
     ],
 
     /*

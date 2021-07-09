@@ -9,8 +9,7 @@
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png">
     <link rel="icon" href="/favicon.png">
     <title>
-        {{ config('app.name', 'Gem Reptiles') }} &mdash;
-        {{ Illuminate\Support\Str::title(str_replace('.', ' ', Route::currentRouteName())) . ' ' . " :: We're the wild type" }}
+        {{ $slug ?? Illuminate\Support\Str::title(str_replace('.', ' ', Route::currentRouteName())) . ' ' . config('app.name') }}
     </title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style"
