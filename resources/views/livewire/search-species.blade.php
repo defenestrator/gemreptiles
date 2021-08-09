@@ -3,20 +3,22 @@
     <div class="p-6 bg-white border-b border-gray-200 sm:rounded shadow-lg" style="min-height:313px;">
         <h3 class="text-xl font-serif mb-2">
             Search for Reptiles
-            @if(count($species) > 0 && count($species) != 1)
-            <span class="text-sm content-center font-sans text-yellow-700"> {{ count($species) . ' results'}}</span>
-            @elseif(count($species) == 1)
-            <span class="text-sm content-center font-sans text-yellow-700"> {{ count($species) . ' result'}}</span>
-            @else
-            <span class="text-sm content-center font-sans text-yellow-700"> {{$count}} species</span>
-            @endif
+
         </h3>
 
         <input class="rounded-md form-input
             border-green-500 focus:border-green-400"
             style="--tw-ring-color: rgba(59, 125, 43);" id="search-species" wire:model="search" type="text" placeholder="Search species..."/>
         <button class="rounded bg-transparent py-1 px-2 text-gray-400" onclick="clearSearch()">clear</button>
-
+        <div class="text-left pt-4">
+        @if(count($species) > 0 && count($species) != 1)
+        <span class="text-sm content-center font-sans text-yellow-500"> {{ count($species) . ' results'}}</span>
+        @elseif(count($species) == 1)
+        <span class="text-sm content-center font-sans text-yellow-500"> {{ count($species) . ' result'}}</span>
+        @else
+        <span class="text-sm content-center font-sans text-yellow-500"> {{$count}} species</span>
+        @endif
+        </div>
         @if(count($species) > 0)
         <div class="text-left pt-4">
             <div class="grid gap-2 grid-cols-2">
@@ -129,8 +131,8 @@
 
 @if(Route::currentRouteName()  == 'welcome')
 <script>
-    window.onload =  function (event){
-        setTimeout(function(){writeText()},time);
+    window.onload = function (event){
+        //setTimeout(function(){setTimeout(function(){writeText()},time)},5000);
     };
 </script>
 @endif

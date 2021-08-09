@@ -88,7 +88,7 @@ class Image extends Model
 
         $newImage = $this->processImage($file, $size);
 
-        if ($location != false && is_array($location) ) {
+        if ($location != false && is_array($location)) {
             $lat = $location->latitude;
             $long = $location->longitude;
         }
@@ -134,11 +134,11 @@ class Image extends Model
 
         $hash = Str::uuid();
         $fileName = $hash . '.webp';
-        if ( config('app.env') == 'production' ) {
-            Storage::disk('s3')->getDriver()->put('/images/'. $fileName , $i->__toString(), $options);
+        if (config('app.env') == 'production') {
+            Storage::disk('s3')->getDriver()->put('/images/'. $fileName, $i->__toString(), $options);
             $filePath = config('filesystems.disks.s3.url' . '/images/', 'https://cdn.gemreptiles.com/images/') . $fileName;
         } else {
-            Storage::disk('local')->put('/images/'. $fileName , $i->__toString());
+            Storage::disk('local')->put('/images/'. $fileName, $i->__toString());
             $filePath = Storage::disk('local')->url('images/'. $fileName);
         }
 
@@ -153,7 +153,7 @@ class Image extends Model
      */
     protected function getImageLocation($exif = '')
     {
-        if(isset($exif['GPS']) ){
+        if (isset($exif['GPS'])) {
             $GPSLatitudeRef = $exif['GPS']['GPSLatitudeRef'];
             $GPSLatitude    = $exif['GPS']['GPSLatitude'];
             $GPSLongitudeRef= $exif['GPS']['GPSLongitudeRef'];

@@ -31,6 +31,7 @@ class CreateVendor extends Component
         'name' => 'required|min:6',
         'email' => 'email',
         'website' => 'active_url',
+        'logo' => 'image|max:2048',
         // 'facebook' => 'active_url',
         // 'instagram' => 'active_url',
         // 'youtube' => 'active_url'

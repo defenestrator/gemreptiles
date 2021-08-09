@@ -1,21 +1,21 @@
 <x-guest-layout>
     <div class="relative flex items-top justify-center bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
         @if (Route::has('login'))
-            <div class="fixed top-0 right-0 px-8 py-6 block">
+            <div class="absolute top-0 right-0 px-8 py-6 block">
                 @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="inline-flex items-center px-4 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-600 active:bg-green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
+                    <a role="button" href="{{ url('/dashboard') }}"
+                        class="ml-4 inline-flex items-center px-4 py-2 text-green-600 rounded-md font-semibold text-xs uppercase tracking-widest hover:text-green-300 active:green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
                         Dashboard
                     </a>
                 @else
-                    <a href="{{ route('login') }}"
-                        class="inline-flex items-center px-4 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-600 active:bg-green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
+                    <a role="button" href="{{ route('login') }}"
+                        class="ml-4 inline-flex items-center px-4 py-2 text-green-600 rounded-md font-semibold text-xs uppercase tracking-widest hover:text-green-300 active:green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
                         Log in
                     </a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 inline-flex items-center px-4 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-600 active:bg-green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
+                        <a role="button" href="{{ route('register') }}"
+                            class="ml-4 inline-flex items-center px-4 py-2 text-green-600 rounded-md font-semibold text-xs uppercase tracking-widest hover:text-green-300 active:green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
                             Register
                         </a>
                     @endif
