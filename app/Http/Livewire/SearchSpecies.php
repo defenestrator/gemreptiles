@@ -10,9 +10,10 @@ use App\Traits\Sluggable;
 class SearchSpecies extends Component
 {
     use Sluggable;
-    public $search = '';
+    public $search;
 
     public function boot() {
+        return $this->search = '';
     }
 
     public function render()
