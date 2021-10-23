@@ -30,8 +30,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('heartbeat')
-            ->everyFiveMinutes()
-            ->thenPing('http://beats.envoyer.io/heartbeat/3QeUKYWIlWUwzw4');
+            ->hourly()
+            ->thenPing('http://beats.envoyer.io/heartbeat/OWD2Nl8zWKgmSfS');
     }
 
     /**
