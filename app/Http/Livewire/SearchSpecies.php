@@ -13,7 +13,6 @@ class SearchSpecies extends Component
     public $search = '';
 
     public function boot() {
-        return $this->search = $this->generateSearchString();
     }
 
     public function render()

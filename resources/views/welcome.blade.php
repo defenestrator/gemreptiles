@@ -19,7 +19,7 @@
                             Register
                         </a>
                     @endif
-                @endauth           </div>
+            @endauth           </div>
         @endif
 
         <div class="max-w-6xl mx-auto py-4 sm:px-6 lg:px-8 mt-8">
