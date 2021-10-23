@@ -4,23 +4,22 @@
             <div class="absolute top-0 right-0 px-8 py-6 block">
                 @auth
                     <a role="button" href="{{ url('/dashboard') }}"
-                        class="ml-4 inline-flex items-center px-4 py-2 text-green-600 rounded-md font-semibold text-xs uppercase tracking-widest hover:text-green-300 active:green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
+                        class="ml-4 inline-flex items-center px-4 py-2 text-green-600 rounded-md font-semibold text-xs uppercase tracking-widest hover:text-green-400 active:green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
                         Dashboard
                     </a>
                 @else
                     <a role="button" href="{{ route('login') }}"
-                        class="ml-4 inline-flex items-center px-4 py-2 text-green-600 rounded-md font-semibold text-xs uppercase tracking-widest hover:text-green-300 active:green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
+                        class="ml-4 inline-flex items-center px-4 py-2 text-green-600 rounded-md font-semibold text-xs uppercase tracking-widest hover:text-green-400 active:green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
                         Log in
                     </a>
 
                     @if (Route::has('register'))
                         <a role="button" href="{{ route('register') }}"
-                            class="ml-4 inline-flex items-center px-4 py-2 text-green-600 rounded-md font-semibold text-xs uppercase tracking-widest hover:text-green-300 active:green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
+                            class="ml-4 inline-flex items-center px-4 py-2 text-green-600 rounded-md font-semibold text-xs uppercase tracking-widest hover:text-green-400 active:green-500 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
                             Register
                         </a>
                     @endif
-                @endauth
-            </div>
+                @endauth           </div>
         @endif
 
         <div class="max-w-6xl mx-auto py-4 sm:px-6 lg:px-8 mt-8">
