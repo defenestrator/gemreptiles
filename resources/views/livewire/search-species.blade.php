@@ -64,77 +64,77 @@
         </p>
     </div>
     <script>
-    //     const terms = [
-    //         'iguana',
-    //         'boa',
-    //         'cobra',
-    //         'carpet python',
-    //         'ball python',
-    //         'crested',
-    //         'snake',
-    //         'toed',
-    //         'Anolis',
-    //         'Rhacodactylus',
-    //         'Corn Snake',
-    //         'Western Hognose',
-    //         'Python',
-    //         'tree',
-    //         'Pituophis',
-    //         'naja',
-    //         'rattlesnake',
-    //         'Abronia',
-    //         'Flying',
-    //         'Dragon',
-    //         'monitor',
-    //         'agama',
-    //         'bicolor',
-    //         'unicorn',
-    //         'gecko',
-    //         'monster',
-    //         'tortoise',
-    //         'king',
-    //         'turtle',
-    //         'alligator',
-    //         'night',
-    //         'rainbow',
-    //         'teiid',
-    //         'chameleon',
-    //         'rat',
-    //         'gopher',
-    //         'blattfinger'
-    //     ];
-    // let searchInput = document.getElementById('search-species')
-    // searchInput.select()
-    // searchInput.value = ""
+        const terms = [
+            'iguana',
+            'boa',
+            'cobra',
+            'carpet python',
+            'ball python',
+            'crested',
+            'snake',
+            'toed',
+            'Anolis',
+            'Rhacodactylus',
+            'Corn Snake',
+            'Western Hognose',
+            'Python',
+            'tree',
+            'Pituophis',
+            'naja',
+            'rattlesnake',
+            'Abronia',
+            'Flying',
+            'Dragon',
+            'monitor',
+            'agama',
+            'bicolor',
+            'unicorn',
+            'gecko',
+            'monster',
+            'tortoise',
+            'king',
+            'turtle',
+            'alligator',
+            'night',
+            'rainbow',
+            'teiid',
+            'chameleon',
+            'rat',
+            'gopher',
+            'blattfinger'
+        ];
+    let searchInput = document.getElementById('search-species')
+    searchInput.select()
+    searchInput.value = ""
 
-    // var text = terms[Math.floor(Math.random() * terms.length)];
-    // var l=text.length;
-    // var current = 0;
-    // var time = 100;
-    // var writeText = function() {
-    //     searchInput.value+=text[current];
-    //     if(current < l-1) {
-    //         current++;
-    //         setTimeout(function(){writeText()},time);
-    //         searchInput.dispatchEvent(new Event('input'));
-    //     } else {
-    //         searchInput.setAttribute('value',searchInput.value);
-    //         searchInput.dispatchEvent(new Event('input'));
-    //     }
-    // }
-    // function clearSearch() {
-    //     searchInput.value = ""
-    //     searchInput.dispatchEvent(new Event('input'))
-    //     searchInput.select()
-    // }
+    var text = terms[Math.floor(Math.random() * terms.length)];
+    var l=text.length;
+    var current = 0;
+    var time = 100;
+    var writeText = function() {
+        searchInput.value+=text[current];
+        if(current < l-1) {
+            current++;
+            setTimeout(function(){writeText()},time);
+            searchInput.dispatchEvent(new Event('input'));
+        } else {
+            searchInput.setAttribute('value',searchInput.value);
+            searchInput.dispatchEvent(new Event('input'));
+        }
+    }
+    function clearSearch() {
+        searchInput.value = ""
+        searchInput.dispatchEvent(new Event('input'))
+        searchInput.select()
+    }
 </script>
 
-{{-- @if(Route::currentRouteName()  == 'welcome') --}}
+@if(Route::currentRouteName()  == 'welcome')
 <script>
-    // window.onload = function (event){
-        //setTimeout(function(){setTimeout(function(){writeText()},time)},5000);
-    // };
+    window.onload = function (event){
+        setTimeout(function(){setTimeout(function(){writeText()},time)},1000);
+    };
 </script>
-{{-- @endif --}}
+@endif
 
 </div>
