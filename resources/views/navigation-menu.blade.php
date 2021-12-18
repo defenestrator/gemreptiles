@@ -15,6 +15,9 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('vendors.index') }}" :active="request()->routeIs('vendors.index')">
+                        {{ __('Vendors') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -68,7 +71,7 @@
                         </x-jet-dropdown>
                     </div>
                 @endif
-
+                @if(Auth::check())
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
@@ -121,6 +124,7 @@
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
+                @endif
             </div>
 
             <!-- Hamburger -->
@@ -141,8 +145,11 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('vendors.index') }}" :active="request()->routeIs('vendors.index')">
+                {{ __('Vendors') }}
+            </x-jet-responsive-nav-link>
         </div>
-
+        @if(Auth::check())
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
@@ -213,5 +220,6 @@
                 @endif
             </div>
         </div>
+        @endif
     </div>
 </nav>

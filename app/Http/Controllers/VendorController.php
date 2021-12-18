@@ -46,9 +46,10 @@ class VendorController extends Controller
      * @param  \App\Vendor  $vendor
      * @return \Illuminate\Http\Response
      */
-    public function show(Vendor $vendor)
+    public function show(Vendor $showVendor, $slug)
     {
-        //
+        $vendor = $showVendor->whereSlug($slug)->get()->first();
+        return view('vendor.show')->with('vendor', $vendor);
     }
 
     /**
@@ -57,9 +58,10 @@ class VendorController extends Controller
      * @param  \App\Vendor  $vendor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vendor $vendor)
+    public function edit(Vendor $editVendor, $id)
     {
-        //
+        $vendorName = $editVendor->whereId($id)->get(['name'])->first()->name;
+        return view('vendor.edit')->with(compact('id', 'vendorName'));
     }
 
     /**

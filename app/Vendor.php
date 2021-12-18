@@ -19,7 +19,7 @@ class Vendor extends Model
     ];
 
     protected $fillable = [
-        'name', 'email', 'facebook', 'morph_market', 'youtube', 'instagram', 'website', 'phone', 'description'
+        'name', 'slug', 'email', 'facebook',  'morph_market', 'youtube', 'instagram', 'website', 'phone', 'description'
     ];
 
     /**

@@ -7,10 +7,12 @@ use App\Vendor;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 
-class CreateVendor extends Component
+class EditVendor extends Component
 {
     use WithFileUploads;
 
+    public $vendorId;
+    public $vendor;
     public $name;
     public $email;
     public $website;
@@ -29,19 +31,18 @@ class CreateVendor extends Component
 
     protected $rules = [
         'name' => 'required|min:6',
-        // 'email' => 'email',
+        'email' => 'email',
         'website' => 'active_url',
-        'logo' => 'image|max:4096',
-        // 'facebook' => 'active_url',
-        // 'instagram' => 'active_url',
-        // 'youtube' => 'active_url'
+        'facebook' => 'active_url',
+        'instagram' => 'active_url',
+        'youtube' => 'active_url'
     ];
 
     public function submit()
     {
         $this->validate();
         // Execution doesn't reach here if validation fails.
-        $vendor = [
+        $this->vendor->update([
             'name'          => $this->name,
             'slug'          => Str::slug($this->name),
             'email'         => $this->email,
@@ -52,14 +53,13 @@ class CreateVendor extends Component
             'youtube'       => $this->youtube,
             'phone'         => $this->phone,
             'description'   => $this->description,
-        ];
+        ]);
 
-        $newVendor = Vendor::firstOrCreate($vendor);
         $image = $this->logo->storePublicly('images', 's3');
-        $newVendor->image()->firstOrCreate([
+        $this->vendor->image()->update([
             'url' => 'https://s3.us-west-2.amazonaws.com/cdn.gemreptiles.com/' . $image
         ]);
-        $newVendor->address()->firstOrCreate([
+        $this->vendor->address()->update([
             'nickname' => 'default',
             'country' => 'United States',
             'street_address' => $this->address,
@@ -68,11 +68,33 @@ class CreateVendor extends Component
             'state' => $this->state,
             'postal_code' => $this->zip
         ]);
-        return $newVendor->fresh()->with(['address', 'image']);
+        return $this->vendor->fresh()->with(['address', 'image']);
     }
 
-    public function render()
+    public function mount(Vendor $renderVendor, $vendorId)
     {
-        return view('livewire.vendor.create-vendor');
+        $vendor = $renderVendor->find($vendorId)->with(['image', 'address'])->first();
+        $this->vendor = $vendor;
+        $this->name = $vendor->name;
+        $this->website = $vendor->website;
+        $this->logo = $vendor->image->url;
+        $this->instagram = $vendor->instagram;
+        $this->email = $vendor->email;
+        $this->youtube = $vendor->youtube;
+        $this->morph_market = $vendor->morph_market;
+        $this->address = $vendor->address->street_address;
+        $this->unit_number = $vendor->unit_number;
+        $this->zip = $vendor->address->postal_code;
+        $this->city = $vendor->address->city;
+        $this->state = $vendor->address->state;
+        $this->facebook = $vendor->facebook;
+        $this->phone = $vendor->phone;
+        $this->unit_number = $vendor->address->unit_number;
+        $this->description = $vendor->description;
+    }
+
+    public function render(Vendor $renderVendor)
+    {
+        return view('livewire.vendor.edit-vendor');
     }
 }

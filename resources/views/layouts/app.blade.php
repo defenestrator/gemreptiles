@@ -7,7 +7,7 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="/ms-favicon.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png">
-    <link rel="icon" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
         {{ $slug ?? Illuminate\Support\Str::title(str_replace('.', ' ', Route::currentRouteName())) . config('app.name', 'Gem Reptiles') }}

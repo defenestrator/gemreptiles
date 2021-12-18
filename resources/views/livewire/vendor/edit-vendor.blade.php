@@ -4,7 +4,7 @@
             <div class="shadow overflow-hidden w-100 sm:rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
                     <div class="grid grid-cols-6 gap-6">
-                        <div x-data="{logoName: null, logoPreview: null}" class="col-span-6 sm:col-span-4">
+                        <div x-data="{logoName: null , logoPreview: null }" class="col-span-6 sm:col-span-4">
                             <!-- Profile logo File Input -->
                             <input type="file" class="hidden"
                                 wire:model="logo"
@@ -18,11 +18,11 @@
                                     reader.readAsDataURL($refs.logo.files[0]);
                             " />
 
-                            <x-jet-label for="logo" value="{{ __('logo') }}" />
+                            <x-jet-label for="logo" value="{{ __('logo') }}" class="hidden" />
 
                             <!-- Current Profile logo -->
-                            <div class="mt-2" x-show="! logoPreview">
-                                <img src="{{ $this->logo }}" alt="{{ $this->name }}"
+                            <div class="mt-2 bg-transparent" x-show="! logoPreview">
+                                <img src="{{ $this->vendor->image->url }}" alt="{{ $this->vendor->name }}"
                                     class="rounded-full h-20 w-20 object-cover">
                             </div>
 
@@ -35,12 +35,12 @@
 
                             <x-jet-secondary-button class="mt-2 mr-2" type="button"
                                 x-on:click.prevent="$refs.logo.click()">
-                                {{ __('Select A New logo') }}
+                                {{ __('New Logo') }}
                             </x-jet-secondary-button>
 
                             {{-- @if ($this->logo)
                                 <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilelogo">
-                                    {{ __('Remove logo') }}
+                                    {{ __('Remove Logo') }}
                                 </x-jet-secondary-button>
                             @endif --}}
 
@@ -50,7 +50,7 @@
                         <div class="col-span-6 sm:col-span-3">
                             <label for="name" class="block text-sm font-medium text-gray-700 capitalize">Name</label>
                             <input type="text" wire:model="name" id="name"
-                                autocomplete="name"
+                                autocomplete="vendor-name"
                                 class="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
                         <div class="col-span-6 sm:col-span-3">
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-span-6">
                             <label for="website"
-                                class="block text-sm font-medium text-gray-700 capitalize">Website</label>
+                                class="block text-sm font-medium text-gray-700 capitalize">{{$this->vendor->website}}</label>
                             <input type="text" wire:model="website" id="website" autocomplete="website"
                                 class="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 
@@ -98,9 +98,9 @@
                         </div>
                         <div class="col-span-6">
                             <label for="description"
-                                class="block text-sm font-medium text-gray-700 capitalize">description</label>
+                                class="block text-sm font-medium text-gray-700 capitalize">{{ $this->vendor->description }}</label>
                             <textarea type="textarea" wire:model="description" id="description" name="description"
-                                class="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+                                class="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{!!$this->vendor->description!!}</textarea>
 
                         </div>
                         <div class="col-span-6">
