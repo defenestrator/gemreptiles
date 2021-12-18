@@ -7,13 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use App\Traits\Sluggable;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image as Intervention;
+use Dyrynda\Database\Support\GeneratesUuid;
+use Dyrynda\Database\Casts\EfficientUuid;
 
 class Vendor extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable, GeneratesUuid;
+
+    protected $casts = [
+        'uuid' => EfficientUuid::class,
+    ];
 
     protected $fillable = [
-        'name', 'email'
+        'name', 'email', 'facebook', 'morph_market', 'youtube', 'instagram', 'website', 'phone', 'description'
     ];
 
     /**

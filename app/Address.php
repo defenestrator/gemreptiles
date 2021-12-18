@@ -15,6 +15,18 @@ class Address extends Model
         'uuid' => EfficientUuid::class,
     ];
 
+    protected $fillable = [
+        'nickname',
+        'country',
+        'street_address',
+        'unit_number',
+        'city',
+        'state',
+        'postal_code',
+        'latitude',
+        'longitude'
+    ];
+
     public function addressable()
     {
         return $this->morphTo();

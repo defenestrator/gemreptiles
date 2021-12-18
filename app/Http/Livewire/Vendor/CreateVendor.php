@@ -54,16 +54,21 @@ class CreateVendor extends Component
             'description'   => $this->description,
         ];
 
-        $newVendor = Vendor::create($vendor);
-        $this->logo->storePublicly('images', 's3');
-
-        $newVendor->address([
-            'nickname' => $this->nickname,
-            'country' => $this->country,
-            'address' => $this->street_address,
-        ])->save();
-
-        return $newVendor->fresh()->withAddress();
+        $newVendor = Vendor::firstOrCreate($vendor);
+        $image = $this->logo->storePublicly('images', 's3');
+        $newVendor->image()->firstOrCreate([
+            'url' => 'https://s3.us-west-2.amazonaws.com/cdn.gemreptiles.com/' . $image
+        ]);
+        $newVendor->address()->firstOrCreate([
+            'nickname' => 'default',
+            'country' => 'United States',
+            'street_address' => $this->address,
+            'unit_number' => $this->unit_number,
+            'city' => $this->city,
+            'state' => $this->state,
+            'postal_code' => $this->zip
+        ]);
+        return $newVendor->fresh()->with(['address']);
     }
 
     public function render()

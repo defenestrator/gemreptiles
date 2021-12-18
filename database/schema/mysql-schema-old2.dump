@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 8.0.25)
 # Database: gsr
-# Generation Time: 2021-12-18 00:53:10 +0000
+# Generation Time: 2021-12-18 00:46:15 +0000
 # ************************************************************
 
 
@@ -184,7 +184,6 @@ CREATE TABLE `breeders` (
   `uuid` binary(16) NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(140) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `website` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `morph_market` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,

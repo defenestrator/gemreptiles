@@ -14,7 +14,7 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        //
+        return Animal::all();
     }
 
     /**
@@ -24,7 +24,7 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        //
+        return view('livewire.animal.animal-create');
     }
 
     /**
